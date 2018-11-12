@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>流程测试</title>
+
+    <script src="../../js/test/base/jquery-3.2.1.min.js"></script>
+    <script src="../../js/test/base/approveCommon.js"></script>
+    <script src="../../js/test/base/TestCommon.js"></script>
+    <script src="../../js/test/sealCirculationTest.js"></script>
+    <script src="../../js/test/restaurantReceptionTest.js"></script>
+    <script src="../../js/test/purchaseRequisitionTest.js"></script>
+    <script src="../../js/test/governmentInformationTest.js"></script>
+    <script src="../../js/test/contractApproveTest.js"></script>
+
+    <script>
+        //科员1
+        var clerkOne = {id : "001", name : "李一斌", roleID : "004", roleName : "计划科科员"};
+        //科员1对应科长
+        var chiefOne = {id : "004", name : "洪敏", roleID : "003", roleName : "计划科科长"};
+        //科员2
+        var clerkTwo = {id : "003", name : "费佳慧", roleID : "006", roleName : "行政办科员"};
+        //科员2对应科长
+        var chiefTwo = {id : "001", name : "李一斌", roleID : "005", roleName : "行政办科长"};
+        //科员3
+        var clerkThree = {id : "009", name : "崔节坤", roleID : "008", roleName : "党委办科员"};
+        //科员3对应科长
+        var chiefThree = {id : "005", name : "蔡正", roleID : "007", roleName : "党委办科长"};
+        //分管领导1
+        var branchOne = {id : "006", name : "徐瑞文", roleID : "002", roleName : "分管领导"};
+        //分管领导2
+        var branchTwo = {id : "007", name : "蒋宇一", roleID : "002", roleName : "分管领导"};
+        //分管领导3
+        var branchThree = {id : "005", name : "蔡正", roleID : "002", roleName : "分管领导"};
+        //主要领导1
+        var mainOne = {id : "008", name : "张欢欢", roleID : "001", roleName : "主要领导"};
+        //主要领导2
+        var mainTwo = {id : "002", name : "丁风梧", roleID : "001", roleName : "主要领导"};
+        //业务科室
+        var section={id : "002", name : "丁风梧", roleID : "009", roleName : "业务科室科长"};
+        //保密领导
+        var secrecy={id : "008", name : "张欢欢", roleID : "010", roleName : "主要领导"};
+
+        $(document).ready(function () {
+            $("#selectType").click(function () {
+                $("div", $("#testInfo")).remove();
+                var caseType = $("#caseType").val();
+                if(caseType == "00"){
+                    var caseCount = 1;
+                    for(var i=1; i<=caseCount; i++){
+                        var caseID = "testCase"+((i < 10)?('0' + i):i);
+                        var testCase = eval(caseID);
+                        testCase();
+                    }
+                }else{
+                    var testCase = eval("testCase"+caseType);
+                    testCase();
+                }
+            });
+            $("#selectCase").click(function () {
+                $("div", $("#testInfo")).remove();
+                var caseID = $("#caseID").val();
+                var testCase = eval("testCase"+caseID);
+                testCase();
+            });
+        });
+    </script>
+</head>
+<body>
+<div>
+    <select id="caseType">
+        <option value="00">全部</option>
+        <option value="01">印章流转</option>
+        <option value="03">小餐厅</option>
+        <option value="04">政府信息</option>
+        <option value="05">请购单</option>
+        <option value="06">合同审批</option>
+        <option value="07">项目预审表</option>
+    </select>
+    <button id="selectType">运行</button>
+    <input id="caseID" onkeyup="value=value.replace(/[^\d]/g,'')">
+    <button id="selectCase">运行</button>
+</div>
+<div id="testInfo">
+    <h2>测试信息：</h2>
+</div>
+</body>
+</html>

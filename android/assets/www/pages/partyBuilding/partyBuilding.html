@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="../../js/lib/jquery-3.2.1.min.js"></script>
+    <script src="../../js/module/common/common.js"></script>
+    <script>
+        var user;
+        var callbackGetNotice = function (noticeList) {
+            createFileList(noticeList,$("#noticeList"));
+        };
+
+        function createFileList(fileList,area) {
+            $("li",area).remove();
+
+        }
+
+        $(document).ready(function () {
+            user = getUserInfo();
+            getNoticeList(user.ID,1,10)
+        })
+
+
+    </script>
+</head>
+<body>
+<div class="container" data-trigger="click">
+    <div class="tab">
+        <a href="#" class="current" ><span style="font-size:15px">查看文件</span></a>
+        <a href="#" onclick=""><span style="font-size:15px">查询文件</span></a>
+        <a href="javascript:;"><span style="font-size:15px">发起文件</span></a>
+    </div>
+    <div class="content">
+        <div class="content-item">
+            <div style="float: left;width: 50%;">
+                <div>
+                    <span>通知文件</span>
+                    <a>更多>></a>
+                </div>
+                <div>
+                    <ul id="noticeList"></ul>
+                </div>
+            </div>
+            <div style="float: right;width: 50%;">
+                <div>
+                    <span>表彰文件</span>
+                    <a>更多>></a>
+                </div>
+                <div>
+                    <ul id="honorList"></ul>
+                </div>
+            </div>
+            <div style="width: 100%;">
+                <div>
+                    <span>部门简讯</span>
+                    <a>更多>></a>
+                </div>
+                <div>
+                    <ul id="briefList"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

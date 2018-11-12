@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>嘉定区建管委“三重一大”事项申请表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/commonAPP.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/theTIOGMatterApply.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1" style="font-size: 8vw">嘉定区建管委</div>
+            <div class="name2" style="font-size: 8vw">“三重一大”事项申请表</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>事项名称：</div></td>
+                    <td colspan="3" class="single"><input id="itemName" class="disable" readonly><i id="hintItemName"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>项目属性：</div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="single">
+                        <label class="radio" style="margin-left: 17px"><input type="radio" name="projectProperty" value="A" id="propertyA" disabled>重大决策</label>
+                        <label class="radio" style="margin-left: 45px"><input type="radio" name="projectProperty" value="B" id="propertyB" disabled>重要干部任免</label>
+                        <br>
+                        <label class="radio" style="margin-left: 17px"><input type="radio" name="projectProperty" value="C" id="propertyC" disabled>重大项目安排</label>
+                        <label class="radio" style="margin-left: 17px"><input type="radio" name="projectProperty" value="D" id="propertyD" disabled>大额度资金使用</label>
+                        <i id="hintProjectProperty"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>申请科室：</div></td>
+                    <td class="fill" colspan="3"><input id="applyDepartment" class="disable" readonly><i id="hintApplyDepartment"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>申请时间：</div></td>
+                    <td class="fill" colspan="3"><input id="applyDate" class="disable" readonly><i id="hintApplyDate"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>会议时间：</div></td>
+                    <td class="fill" colspan="3"><input id="partyMeetingDate" class="disable" readonly><i id="hintPartyMeetingDate"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>会议地点：</div></td>
+                    <td class="fill" colspan="3"><input id="partyMeetingPlace" class="disable" readonly><i id="hintPartyMeetingPlace"></i></td>
+                </tr>
+                <tr id="showAttendPerson">
+                    <td colspan="4" class="special">
+                        <div class="comtitle">
+                            <span><img src="../../resources/images/clist.png" /></span>
+                            <label>会议出席人员(0)</label>
+                            <div class="rline"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center"><ul id="conferenceAttendees" class="yhlblist"></ul></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="special"><span>＊</span>会议主要内容：<i id="hintMeetingContent" class="special"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <textarea id="meetingContent" class="disable" readonly></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="special"><span>＊</span>会议结果：<i id="hintMeetingResult" class="special"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <textarea id="meetingResult" class="disable" readonly></textarea>
+                    </td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceExecutiveSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceAdminMainLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="advicePartyMainLeaderArea" class="approve"></table></td></tr>
+    <tr>
+        <td colspan="4" class="comment">
+            <p><strong>注:</strong></p>
+            <p>1、此表由申请科室负责填写，分管签字后由党工委办公室或行政办汇总；</p>
+            <p>2、此表应根据事项内容填写、无关联栏目则无需填写；</p>
+            <p>3、此表一周内报纪工委备案。</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

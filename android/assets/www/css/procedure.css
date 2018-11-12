@@ -1,0 +1,533 @@
+@charset "utf-8";
+/***
+ * 流程页面样式
+ */
+
+.procedure {
+    /*width: 750px;*/
+    width: 100%;
+    margin: 20px auto;
+}
+
+.procedure td {
+    padding: 5px 0;
+    font: normal 4vw "微软雅黑";
+    color: #333;
+}
+
+.procedure .name {
+    padding: 10px;
+    font: bold 30px/45px "微软雅黑";
+    color: #333;
+    text-align: center;
+}
+
+.procedure .name1 {
+    padding-top: 10px;
+    font: bold 30px/45px "微软雅黑";
+    color: #333;
+    text-align: center;
+}
+.procedure .name2 {
+    padding-bottom: 10px;
+    font: bold 30px/45px "微软雅黑";
+    color: #333;
+    text-align: center;
+}
+
+.procedure .secondName {
+    padding: 2px;
+    font: bold 20px/20px "微软雅黑";
+    color: #333;
+    text-align: center;
+}
+
+.procedure .info {
+    width: 33%;
+}
+
+.procedure .left {
+    text-align: left;
+}
+
+.procedure .center {
+    text-align: center;
+}
+
+.procedure .right {
+    text-align: right;
+}
+
+.procedure .content {
+    width: 100%;
+}
+
+.procedure .title {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #2D8EC3;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0 5px;
+    border-top: 2px solid #2D8EC3;
+}
+
+.procedure .content .label {
+    width: 25%;
+}
+
+.procedure .content .label div {
+    height: 36px;
+    line-height: 36px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.procedure .content .label div.part{
+    font-weight: normal;
+}
+
+.procedure .content .special {
+    font-weight: bold;
+}
+
+.procedure .content .label span {
+    display: inline;
+    font: normal 14px "arial";
+    color: #EB0003;
+}
+
+.procedure .content .special span {
+    display: inline;
+    font: normal 14px "arial";
+    color: #EB0003;
+}
+
+.procedure .content .fill {
+    width: 75%;
+}
+
+.procedure .content .single {
+    width: 87%;
+}
+
+.procedure .content .middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.procedure i {
+    height: 12px;
+    display: block;
+    font: normal 12px "";
+    color: #EE0003;
+}
+
+.procedure i.special {
+    height: 12px;
+    display: inline-block;
+    font: normal 12px "";
+    color: #EE0003;
+}
+
+.procedure input.default {
+    width: 98%;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+}
+
+.procedure input.money {
+    width: 80%;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+}
+
+.procedure input.disableMoney {
+    width: 80%;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: #eee;
+    text-indent: 10px;
+}
+
+.procedure input.other {
+    width: 30%;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+}
+
+.procedure input.urbanPlace {
+    width: 98%;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+}
+
+.procedure input.disableUrbanPlace {
+    width: 98%;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: #eee;
+    text-indent: 10px;
+}
+
+.procedure input.disableOther {
+    width: 30%;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: #eee;
+    text-indent: 10px;
+}
+
+.procedure input.disable {
+    width: 98%;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: #eee;
+    text-indent: 10px;
+}
+
+.procedure input.date {
+    width: 30%;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputdatebg.png) right repeat-x;
+    text-indent: 10px;
+}
+
+.procedure input.longDate {
+    width: 98%;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputdatebg.png) right repeat-x;
+    text-indent: 10px;
+}
+
+.procedure input.disableDate {
+    width: 30%;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: #eee;
+    text-indent: 10px;
+}
+
+.procedure select.default {
+    width: 99%;
+    height: 36px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+}
+
+.procedure select.department {
+    width: 100px;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+    margin: 5px 10px 0 0;
+}
+
+.procedure select.meeting {
+    width: 100px;
+    height: 25px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    text-indent: 10px;
+    margin: 5px 5px 0 0;
+}
+
+.procedure select.isAttend {
+    width: 50px;
+    height: 25px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    text-indent: 10px;
+    margin: 5px 5px 0 0;
+}
+
+.procedure select.person {
+    width: 75px;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+    margin: 5px 5px 0 0;
+}
+
+.procedure select.back {
+    width: 140px;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+    margin: 5px 5px 0 0;
+}
+
+.procedure select.operate {
+    width: 60px;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 5px;
+    margin: 5px 5px 0 0;
+}
+
+.procedure select.disable {
+    width: 99%;
+    height: 36px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: #eee;
+    text-indent: 10px;
+}
+
+.procedure .radio {
+    line-height: 36px;
+    padding-right: 10px;
+}
+
+.procedure .checkBox {
+    display: inline-block;
+    width: 150px;
+    line-height: 36px;
+    padding-right: 10px;
+}
+
+.procedure .control {
+    float: right;
+}
+
+.procedure .approve {
+    width: 100%;
+}
+
+.procedure .control span {
+    font: normal 14px "微软雅黑";
+    color: #333;
+    font-weight: bold;
+}
+
+.procedure .title span {
+    font: normal 14px "微软雅黑";
+    color: #333;
+    font-weight: bold;
+}
+
+.procedure .confirm {
+    width: 55px;
+    height: 32px;
+    background: url(../resources/images/btnbg.png) no-repeat center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 0;
+    padding: 0;
+    margin: 0 5px 0 0;
+}
+
+.procedure textarea.default {
+    font: normal 14px "微软雅黑";
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    padding: 10px;
+    width: 92%;
+    height: 135px;
+    line-height: 20px;
+    resize: none;
+}
+
+.procedure textarea.disable {
+    font: normal 14px "微软雅黑";
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: #eee;
+    padding: 10px;
+    width: 92%;
+    height: 135px;
+    line-height: 20px;
+    resize: none;
+}
+
+.procedure textarea.dispatch {
+    font: normal 14px/32px "微软雅黑";
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    padding-left: 10px;
+    width: 93%;
+    height: 64px;
+    min-height: 64px;
+    resize: vertical;
+}
+
+.procedure textarea.disableDispatch {
+    font: normal 14px/32px "微软雅黑";
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: #eee;
+    padding-left: 10px;
+    width: 95%;
+    height: 32px;
+    resize: none;
+}
+
+.procedure .comment {
+    font: normal 14px/22px '微软雅黑';
+    color: #666;
+}
+
+.procedure .innerTable {
+    width: 100%;
+    border-bottom: 1px solid #3d96c9;
+}
+
+.procedure .innerTable .label{
+    width: 26%;
+}
+
+.procedure .innerTable .tableTitle {
+    font: bold 15px "微软雅黑";
+    color: #fff;
+    background: #3d96c9;
+    text-indent: 10px;
+}
+
+.procedure .innerTable #saveForTableLine {
+    height: 30px;
+    background: #3d96c9;
+    border: 1px solid #3d96c9;
+    font: normal 12px "微软雅黑";
+
+    color: #fff;
+    -moz-border-radius: 3px;
+    width: 120px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.procedure .innerTable #moreTableLine {
+    padding: 0 15px;
+    height: 35px;
+    margin: 2px 10px 2px 0;
+    background: #32b16c;
+    border: 1px solid #28975b;
+    font: bold 18px "微软雅黑";
+    line-height: 35px;
+    color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    width: 180px;
+    border-radius: 2px;
+    display: none;
+}
+
+.procedure .innerTable .editBegin{
+    border-top: 1px dashed #3d96c9;
+}
+
+.procedure .innerTable .editEnd{
+    border-bottom: 1px dashed #3d96c9;
+}
+
+.procedure .innerTable .tableLineEdit{
+
+}
+
+.procedure .innerTable .disappear{
+    display: none;
+}
+
+.procedure .innerTable .tableDetail{
+    border-bottom: 1px dashed #3d96c9;
+}
+
+.procedure .innerTable .tableDetail label{
+    font-weight: bold;
+}
+
+.procedure .innerTable .tableDetail label.combine{
+    font-weight: bold;
+    display: inline-block;
+    padding-right: 15px;
+}
+
+
+.procedure .innerTable .tableDetail span{
+    font-weight: normal;
+}
+
+.procedure .isToWhere{
+    border-bottom: 1px solid #3d96c9;
+    margin-right: 10px;
+    padding-right: 10px;
+    padding-left: 5px;
+}
+
+.procedure .partInput{
+    padding-left: 15px;
+}
+
+.procedure .underLine{
+    border-bottom: 1px dashed #3d96c9;
+}
+
+.abridgeFileName{
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}

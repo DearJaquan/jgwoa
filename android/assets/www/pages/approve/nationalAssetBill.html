@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>嘉定区区级行政事业单位国有资产损溢、资金挂账申请核实表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/nationalAssetBill.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1" style="font-size: 8vw">国有资产损溢、资金挂账</div>
+            <div class="name2" style="font-size: 8vw">申请核实表</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>申报单位：</div></td>
+                    <td colspan="3" class="fill"><input id="unitName" class="disable" readonly><i id="hintUnitName"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>申报日期：</div></td>
+                    <td colspan="3" class="fill"><input id="declareDate" class="disable" readonly><i id="hintDeclareDate"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>申报单号：</div></td>
+                    <td colspan="3" class="fill"><input id="declarationNum" class="disable" readonly><i id="hintDeclarationNum"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>评估号：</div></td>
+                    <td colspan="3" class="fill"><input id="evaluateNum" class="disable" readonly><i id="hintEvaluateNum"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table class="innerTable">
+                            <tr><td colspan="4" class="tableTitle">资产信息：<i id="hintForApply" class="special"></i></td></tr>
+                            <tr><td colspan="4" id="tableLineList"></td></tr>
+                            <tr class="tableLineEdit disappear editBegin">
+                                <td class="label" valign="top"><div><span>＊</span>卡片编号：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForCardNum" class="default"><i id="hintForCardNum"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>资产名称：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForAssetName" class="default"><i id="hintForAssetName"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>资产分类：</div></td>
+                                <td colspan="3" class="fill">
+                                    <select id="selectForAssetClass" class="default">
+                                        <option value="流动资产">流动资产</option>
+                                        <option value="固定资产">固定资产</option>
+                                        <option value="无形资产">无形资产</option>
+                                        <option value="长期投资">长期投资</option>
+                                        <option value="其他资产">其他资产</option>
+                                    </select>
+                                    <i id="hintForAssetClass"></i>
+                                </td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>明细类别：</div></td>
+                                <td colspan="3" class="fill"><select id="selectForDetailClass" class="default"></select><i id="hintForDetailClass"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>资产来源：</div></td>
+                                <td colspan="3" class="fill">
+                                    <select id="selectForAssetSource" class="default">
+                                        <option value="财政性资金形成（包括预算外资金）">财政性资金形成（包括预算外资金）</option>
+                                        <option value="单位自筹资金形成">单位自筹资金形成</option>
+                                        <option value="单位合并形成">单位合并形成</option>
+                                        <option value="上级拨付资金形成">上级拨付资金形成</option>
+                                        <option value="上级调入形成">上级调入形成</option>
+                                        <option value="接受捐赠形成">接受捐赠形成</option>
+                                        <option value="其他">其他</option>
+                                    </select>
+                                    <i id="hintForAssetSource"></i>
+                                </td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>规格型号：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForModel" class="default"><i id="hintForModel"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>计量单位：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForMeasureUnit" class="default"><i id="hintForMeasureUnit"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>数量：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForNumber" class="default"><i id="hintForNumber"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>购置日期：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForGetDate" class="longDate"><i id="hintForGetDate"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>原值：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForOValue" class="money">&nbsp;&nbsp;元<i id="hintForOValue"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div>累计折旧：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForPValue" class="money" value="0">&nbsp;&nbsp;元<i id="hintForPValue"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div>净值：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForFValue" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintForFValue"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div>评估值：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForEValue" class="money">&nbsp;&nbsp;元<i id="hintForEValue"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>损溢类型：</div></td>
+                                <td colspan="3" class="fill">
+                                    <select id="selectForBalanceType" class="default">
+                                        <option value="盘盈">盘盈</option>
+                                        <option value="报废">报废</option>
+                                        <option value="报损">报损</option>
+                                        <option value="挂账">挂账</option>
+                                    </select>
+                                    <i id="hintForBalanceType"></i>
+                                </td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>证据索引：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForEvidenceIndex" class="default"><i id="hintForEvidenceIndex"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>证据数量：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForEvidenceNumber" class="default"><i id="hintForEvidenceNumber"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div>备注：</div></td>
+                                <td colspan="3" class="single"><input id="inputForComment" class="default"><i id="hintForComment"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear editEnd"><td colspan="4" class="center"><button id="saveForTableLine">保存</button></td></tr>
+                            <tr><td colspan="4" class="center"><button id="moreTableLine">+继续添加</button></td></tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceUnitManagerArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceAdminMainLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

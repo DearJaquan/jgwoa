@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>上海市贯彻落实《八项规定》项目统计表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/eight-pointAusterityRules.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1" style="font-size: 8vw">上海市贯彻落实</div>
+            <div class="name2" style="font-size: 8vw">《八项规定》项目统计表</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="100%" class="content">
+                <tr><td colspan="6" class="title">文件内容：</td></tr>
+                <tr>
+                    <td colspan="6" style="font-weight: bold">填报单位：<span id="unitName"></span></td>
+                </tr>
+                <tr>
+                    <td colspan="6" style="font-weight: bold">填报时间：<span id='fillDate'></span></td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="label"><div style="text-align:left;margin-left: 10%"><label id="fillMonth"></label>支出数（万元）</div></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div><span>＊</span>会议活动费：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>同期支出数：</div></td>
+                </tr>
+                <tr class="underLine">
+                    <td colspan="2"><input id="meetingCharge" class="disable" readonly><i id="hintMeetingCharge"></i></td>
+                    <td colspan="2"><input id="meetingCharge_lastMonth" class="disable" readonly><i></i></td>
+                    <td colspan="2"><input id="meetingCharge_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div><span>＊</span>公务接待费：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>同期支出数：</div></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="officialEntertainment" class="disable" readonly><i id="hintOfficialEntertainment"></i></td>
+                    <td colspan="2"><input id="officialEntertainment_lastMonth" class="disable" readonly><i></i></td>
+                    <td colspan="2"><input id="officialEntertainment_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part"><span>＊</span>一般公共预算：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">同期支出数：</div></td>
+                </tr>
+                <tr>
+                    <td class="partInput" colspan="2"><input id="normal_OE" class="disable" readonly><i id="hintNormal_OE"></i></td>
+                    <td class="partInput" colspan="2"><input id="normal_OE_lastMonth" class="disable" readonly><i></i></td>
+                    <td class="partInput" colspan="2"><input id="normal_OE_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part"><span>＊</span>其它资金：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">同期支出数：</div></td>
+                </tr>
+                <tr  class="underLine">
+                    <td class="partInput" colspan="2"><input id="other_OE" class="disable" readonly><i id="hintOther_OE"></i></td>
+                    <td class="partInput" colspan="2"><input id="other_OE_lastMonth" class="disable" readonly><i></i></td>
+                    <td class="partInput" colspan="2"><input id="other_OE_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div style="font-size: 10px"><span style="font-size: 10px">＊</span>车辆购置及运行费</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>同期支出数：</div></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="vehiclePurchaseAndOperatingCost" class="disable" readonly><i id="hintVehiclePurchaseAndOperatingCost"></i></td>
+                    <td colspan="2"><input id="vehiclePurchaseAndOperatingCost_lastMonth" class="disable" readonly><i></i></td>
+                    <td colspan="2"><input id="vehiclePurchaseAndOperatingCost_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part"><span>＊</span>一般公共预算：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">同期支出数：</div></td>
+                </tr>
+                <tr>
+                    <td class="partInput" colspan="2"><input id="normal_VPOC" class="disable" readonly><i id="hintNormal_VPOC"></i></td>
+                    <td class="partInput" colspan="2"><input id="normal_VPOC_lastMonth" class="disable" readonly><i></i></td>
+                    <td class="partInput" colspan="2"><input id="normal_VPOC_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part"><span>＊</span>其它资金：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">同期支出数：</div></td>
+                </tr>
+                <tr class="underLine">
+                    <td class="partInput" colspan="2"><input id="other_VPOC" class="disable" readonly><i id="hintOther_VPOC"></i></td>
+                    <td class="partInput" colspan="2"><input id="other_VPOC_lastMonth" class="disable" readonly><i></i></td>
+                    <td class="partInput" colspan="2"><input id="other_VPOC_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div style="font-size: 12px">其中车辆购置费：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>同期支出数：</div></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="vehiclePurchase" class="disable"><i id="hintVehiclePurchase" readonly></i></td>
+                    <td colspan="2"><input id="vehiclePurchase_lastMonth" class="disable" readonly><i></i></td>
+                    <td colspan="2"><input id="vehiclePurchase_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part"><span>＊</span>一般公共预算：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">同期支出数：</div></td>
+                </tr>
+                <tr>
+                    <td class="partInput" colspan="2"><input id="normal_VP" class="disable" readonly><i id="hintNormal_VP"></i></td>
+                    <td class="partInput" colspan="2"><input id="normal_VP_lastMonth" class="disable" readonly><i></i></td>
+                    <td class="partInput" colspan="2"><input id="normal_VP_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part"><span>＊</span>其它资金：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">同期支出数：</div></td>
+                </tr>
+                <tr class="underLine">
+                    <td class="partInput" colspan="2"><input id="other_VP" class="disable" readonly><i id="hintOther_VP"></i></td>
+                    <td class="partInput" colspan="2"><input id="other_VP_lastMonth" class="disable" readonly><i></i></td>
+                    <td class="partInput" colspan="2"><input id="other_VP_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div style="font-size: 12px"><span style="font-size: 12px">＊</span>因公出国(境)费：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>同期支出数：</div></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="goingAbroadFee" class="disable" readonly><i id="hintGoingAbroadFee"></i></td>
+                    <td colspan="2"><input id="goingAbroadFee_lastMonth" class="disable" readonly><i></i></td>
+                    <td colspan="2"><input id="goingAbroadFee_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part"><span>＊</span>一般公共预算：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">同期支出数：</div></td>
+                </tr>
+                <tr>
+                    <td class="partInput" colspan="2"><input id="normal_GAF" class="disable" readonly><i id="hintNormal_GAF"></i></td>
+                    <td class="partInput" colspan="2"><input id="normal_GAF_lastMonth" class="disable" readonly><i></i></td>
+                    <td class="partInput" colspan="2"><input id="normal_GAF_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part"><span>＊</span>其它资金：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div class="part">同期支出数：</div></td>
+                </tr>
+                <tr class="underLine">
+                    <td class="partInput" colspan="2"><input id="other_GAF" class="disable" readonly><i id="hintOther_GAF"></i></td>
+                    <td class="partInput" colspan="2"><input id="other_GAF_lastMonth" class="disable" readonly><i></i></td>
+                    <td class="partInput" colspan="2"><input id="other_GAF_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div><span>＊</span>国内差旅费：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>同期支出数：</div></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="domesticTravelExpenses" class="disable" readonly><i id="hintDomesticTravelExpenses"></i></td>
+                    <td colspan="2"><input id="domesticTravelExpenses_lastMonth" class="disable" readonly><i></i></td>
+                    <td colspan="2"><input id="domesticTravelExpenses_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div><span>＊</span>培训费：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>同期支出数：</div></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="trainingExpense" class="disable" readonly><i id="hintTrainingExpense"></i></td>
+                    <td colspan="2"><input id="trainingExpense_lastMonth" class="disable" readonly><i></i></td>
+                    <td colspan="2"><input id="trainingExpense_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="label" style="width: 33%"><div>合计：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>上月支出数：</div></td>
+                    <td colspan="2" class="label" style="width: 33%"><div>同期支出数：</div></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="total" value="0" class="disable" readonly><i></i></td>
+                    <td colspan="2"><input id="total_lastMonth" class="disable" readonly><i></i></td>
+                    <td colspan="2"><input id="total_last" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <button id="confirm" class="confirm" style="float: right" onclick="commitData()">提交</button>
+                        <!--<button id="download" class="confirm" style="float: right" onclick="downloadInstance()">下载</button>-->
+                        <button id="preview" class="confirm" style="float: right" onclick="preview()">预览</button>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6" class="comment">
+            <p><strong>注:</strong></p>
+            <p>1、主管部门每月10日前集中报送各专管员；</p>
+            <p>2、市属单位报送区财政安排部分；</p>
+            <p>3、自2017年12月起《上海市贯彻落实﹤八项规定﹥项目统计表》按发送表样填报。</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

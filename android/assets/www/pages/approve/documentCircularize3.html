@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>文件传阅单</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/documentCircularize3.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1" style="font-size: 8vw">嘉定区建设和管理委员会</div>
+            <div class="name2" style="font-size: 8vw">文件传阅单</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>收文号：</div></td>
+                    <td class="fill"><input id="getNumber" class="disable" readonly><i id="hintGetNumber"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>日期：</div></td>
+                    <td class="fill"><input id="getDate" class="disable" readonly><i id="hintGetDate"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>来文机关：</div></td>
+                    <td class="fill"><input id="docDepartment" class="disable" readonly><i id="hintDocDepartment"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>文号：</div></td>
+                    <td class="fill"><input id="docNumber" class="disable" readonly><i id="hintDocNumber"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>标题：</div></td>
+                    <td colspan="3" class="single"><input class="disable" id="title" readonly><i id="hintTitle"></i></td>
+                </tr>
+                <tr><td colspan="4" class="special">文件审阅人员：<i id="hintForCheckPerson" class="special"></i></td></tr>
+                <tr id="showPersonSelect">
+                    <td colspan="4">
+                        <label for="roleType" style="margin-left: 15%">科室部门：</label>
+                        <select id="roleType" class="meeting"></select>
+                        <br>
+                        <label for="personName" style="margin-left: 15%">人员名称：</label>
+                        <select id="personName" class="meeting"></select>
+                    </td>
+                </tr>
+                <tr id="showCheckPerson">
+                    <td colspan="4" class="special">
+                        <div class="comtitle">
+                            <span><img src="../../resources/images/clist.png" /></span>
+                            <label>审阅人员(0)</label>
+                            <div class="rline"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr><td colspan="4" align="center"><ul id="checkList" class="yhlblist"></ul></td></tr>
+                <!--<tr>-->
+                    <!--<td colspan="4" class="special"><span>＊</span>拟办意见：<i id="hintImitateAdvice" class="special"></i></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td colspan="4" align="center">-->
+                        <!--<textarea id="imitateAdvice" class="disable" readonly></textarea>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceMainLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

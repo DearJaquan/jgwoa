@@ -1,0 +1,119 @@
+.formTitle {
+    text-align:center;
+}
+.formLabel {
+    font-weight: bold;
+}
+.formContent {
+    font-weight: normal;
+}
+.formAdvice {
+    width: 90%;
+    height: 100px;
+    resize: none;
+}
+.marginBig {
+    margin-top: 10px;
+    margin-left: 5%;
+}
+.marginNormal {
+    margin-top: 6px;
+}
+.marginSmall {
+    margin-top: 3px;
+}
+.verticalMiddle {
+    display: flex;
+    align-items: center;
+}
+.controlArea{
+    float: right;
+}
+.formAdviceTime {
+
+}
+.formHistory {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin-left: 5px;
+    padding: 0;
+    font-size: 10px;
+}
+.display-none {
+    display:none;
+}
+.hint{
+    height: 15px;
+    color: red;
+    font-style: italic;
+    font-size: 10px;
+}
+.uploadFileSpan{
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+    zoom: 1;
+    opacity: 0;
+    z-index: 1;
+}
+.uploadFileInput{
+    position: absolute;
+    cursor: pointer;
+    width: 2000px;
+    height: 600px;
+    right: 0;
+}
+
+.formInfo{
+    margin-top: 10px;
+}
+.formInfo label {
+    position: relative;
+    float: left;
+    padding-left: 37px;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+}
+.formInfo input{
+    width: 250px;
+    height: 28px;
+    border:solid 1px;
+    *line-height: 28px;
+    padding: 0 10px;
+}
+
+/*rowinfo*/
+.rowinfo {
+    margin-left: 10%;
+    width: 80%;
+    height: 40px;
+    float: left;
+    margin-top:20px;
+    background-color: #F0F0F0;
+}
+
+.rowinfo a {
+    line-height: 40px;
+    font-size: 18px;
+    width: 100%;
+    display: block;
+    float: left;
+    text-decoration: none;
+    color: #333;
+
+}
+
+.rowinfo a:hover {
+    background: #3B9FE1;
+    color: #fff;
+    width: 100%;
+    height: 40px;
+    text-decoration: none;
+}

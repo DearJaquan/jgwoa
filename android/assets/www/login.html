@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="ui-page-login">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <link href="css/newConfirm.css" rel="stylesheet" type="text/css" />
+    <link href="css/commonAPP.css" rel="stylesheet" />
+    <link href="css/login.css" rel="stylesheet" />
+
+    <title>嘉定区建设和管理委员会</title>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav">
+    <h1 class="mui-title">嘉定区建设和管理委员会</h1>
+</header>
+<div class="mui-content">
+    <div style="margin: 30px auto; text-align: center;">
+        <span class="mui-icon mui-icon-contact"></span>
+    </div>
+    <div class="mui-card">
+        <form id='login-form' class="mui-input-group" style="margin-top: 10px; margin-bottom: 10px;">
+            <div class="mui-input-row">
+                <label>账号</label>
+                <input id='username' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+            </div>
+            <div class="mui-input-row">
+                <label>密码</label>
+                <input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+            </div>
+            <div class="mui-input-row mui-checkbox mui-left">
+                <label style="width: 80%; font-size: 16px; color: #999;">自动登录</label>
+                <input id="remember" name="checkbox" value="Item 1" type="checkbox" >
+            </div>
+        </form>
+
+    </div>
+    <div class="mui-content-padded" style="width:92%; margin: 0 auto; margin-top: 20px;">
+        <button id='login' class="mui-btn mui-btn-block mui-btn-primary butloginbg" onclick="login()">登录</button>
+        <i id="hintLogin" style="color: red;text-align: center;display: block"></i>
+        <!--<button id='login1' class="mui-btn mui-btn-block mui-btn-primary butloginbg" onclick="userAuthentification()">认证</button>-->
+    </div>
+    <div class="mui-content-padded oauth-area">
+
+    </div>
+
+</div>
+<script type="text/javascript" src="js/extend/mui/mui.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/extend/mui/mui.enterfocus.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+<script type="text/javascript" src="cordova.js" charset="UTF-8"></script>
+<script type="text/javascript"  src="js/extend/encryption/jsencrypt.min.js" charset="UTF-8"></script>
+<!--<script type="text/javascript" src="js/lib/jquery.mobile-1.1.1.js"></script>-->
+<script type="text/javascript" src="js/module/common/common.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/login.js" charset="UTF-8"></script>
+
+</body>
+</html>

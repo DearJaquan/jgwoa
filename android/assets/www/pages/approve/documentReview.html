@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--***手机端必备-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>文件审批单</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/documentReview.js" charset="UTF-8"></script>
+</head>
+<body>
+<!--***-->
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <!--***标题拆分-->
+        <td>
+            <div class="name1" style="font-size: 8vw">嘉定区建设和管理委员会</div>
+            <div class="name2" style="font-size: 8vw">文件审批单</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <!--一行为4-->
+                    <td colspan="4" class="special"><div><span>＊</span>办公室审批：</div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="single">
+                        <label class="radio" style="margin-left: 15%"><input type="radio" name="officeRoom" value="行政办审批" id="officeRoom1" disabled>行政办审批
+                        </label>
+                        <label class="radio"><input type="radio" name="officeRoom" value="党委办审批" id="officeRoom2" disabled>党委办审批
+                        </label>
+                        <i id="hintOfficeRoom"></i>
+                    </td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceOfficeRoomArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceAdminMainLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="advicePartyMainLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

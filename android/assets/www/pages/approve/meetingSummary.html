@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>会议纪要</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../css/commonAPP.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/meetingSummary.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr><td><div class="name">会议纪要确认流程</div></td></tr>
+    <tr><td><div id="control"></div></td></tr>
+    <tr><td><table class="content">
+        <tr><td colspan="4" class="title">文件内容：<span id="launchRoleArea"></span></td></tr>
+        <tr>
+            <td colspan="1" class="label" valign="top"><div><span>＊</span>会议时间：</div></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="single">
+                <input id="meetingTimeFrom" class="disableDate" style="width: 45%;margin-left: 3%" readonly>
+                <span>-</span>
+                <input id="meetingTimeTo" class="disableDate" style="width: 45%" readonly>
+                <i id="hintMeetingTime"></i>
+            </td>
+        </tr>
+        <tr>
+            <td class="label" valign="top"><div><span>＊</span>会议名称：</div></td>
+            <td class="fill"><input id="meetingName" class="disable" readonly><i id="hintMeetingName"></i></td>
+        </tr>
+        <tr>
+            <td class="label" valign="top"><div><span>＊</span>会议地点：</div></td>
+            <td class="fill"><input id="meetingRoom" class="disable" readonly><i id="hintMeetingRome"></i></td>
+        </tr>
+        <tr><td colspan="4" class="special">会议出席人员：<i id="hintForMeetingPerson" class="special"></i></td></tr>
+        <tr id="showPersonSelect">
+            <td colspan="4">
+                <label for="addPersonTo" style="margin-left: 11%">添加人员到：</label>
+                <select id="addPersonTo" class="meeting">
+                    <option value="出席人员">出席人员</option>
+                    <option value="列席人员">列席人员</option>
+                    <option value="缺席人员">缺席人员</option>
+                </select>
+                <br>
+                <label for="roleType" style="margin-left: 15%">科室部门：</label>
+                <select id="roleType" class="meeting"></select>
+                <br>
+                <label for="personName" style="margin-left: 15%">人员名称：</label>
+                <select id="personName" class="meeting"></select>
+            </td>
+        </tr>
+        <tr id="showAttendPerson">
+            <td colspan="4" class="special">
+                <div class="comtitle">
+                    <span><img src="../../resources/images/clist.png" /></span>
+                    <label>出席人员(0)</label>
+                    <div class="rline"></div>
+                </div>
+            </td>
+        </tr>
+        <tr><td colspan="4" align="center"><ul id="attendList" class="yhlblist"></ul></td></tr>
+        <tr id="showObservePerson">
+            <td colspan="4" class="special">
+                <div class="comtitle">
+                    <span><img src="../../resources/images/clist.png" /></span>
+                    <label>列席人员(0)</label>
+                    <div class="rline"></div>
+                </div>
+            </td>
+        </tr>
+        <tr><td colspan="4" align="center"><ul id="observeList" class="yhlblist"></ul></td></tr>
+        <tr id="showAbsentPerson">
+            <td colspan="4" class="special">
+                <div class="comtitle">
+                    <span><img src="../../resources/images/clist.png" /></span>
+                    <label>缺席人员(0)</label>
+                    <div class="rline"></div>
+                </div>
+            </td>
+        </tr>
+        <tr><td colspan="4" align="center"><ul id="absentList" class="yhlblist"></ul></td></tr>
+        <tr data-show="showReturnReason">
+            <td colspan="4" class="special">退回意见：<i id="hintMeetingContent" class="special"></i></td>
+        </tr>
+        <tr data-show="showReturnReason">
+            <td colspan="4" align="center">
+                <textarea id="returnReason" class="disable" readonly></textarea>
+            </td>
+        </tr>
+        <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+        <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+    </table></td></tr>
+    <tr><td colspan="4"><table id="adviceApproveArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

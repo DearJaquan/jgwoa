@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>嘉定区建管委（交通委）请购申请单</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/purchaseRequisition.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1" style="font-size: 8vw">嘉定区建管委（交通委）</div>
+            <div class="name2" style="font-size: 8vw">请购申请单</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>请购部门：</div></td>
+                    <td colspan="3" class="fill"><input id="purchaseDepartment" class="disable" readonly><i id="hintPurchaseDate"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>请购日期：</div></td>
+                    <td colspan="3" class="fill"><input id="purchaseDate" class="disable" readonly><i id="hintPurchaseDepartment"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table class="innerTable">
+                            <tr><td colspan="4" class="tableTitle">请购信息：<i id="hintForList" class="special"></i></td></tr>
+                            <tr><td colspan="4" id="tableLineList"></td></tr>
+                            <tr class="tableLineEdit disappear editBegin">
+                                <td class="label" valign="top"><div><span>＊</span>品名：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForRequestName" class="default"><i id="hintForRequestName"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>规格型号：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForRequestSpec" class="default"><i id="hintForRequestSpec"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>单位数量：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForRequestNum" class="default"><i id="hintForRequestNum"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>用途：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForRequestUse" class="default"><i id="hintForRequestUse"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div>备注：</div></td>
+                                <td colspan="3" class="single"><input id="inputForRequestComment" class="default"><i id="hintForRequestComment"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear editEnd"><td colspan="4" class="center"><button id="saveForTableLine">保存</button></td></tr>
+                            <tr><td colspan="4" class="center"><button id="moreTableLine">+继续添加</button></td></tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceAdminMainLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

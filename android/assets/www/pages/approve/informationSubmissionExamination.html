@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>嘉定区信息公开信息报送审查表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/informationSubmissionExamination.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1" style="font-size: 8vw">嘉定区信息公开信息报送</div>
+            <div class="name2" style="font-size: 8vw">审查表</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>编号：</div></td>
+                    <td class="fill" colspan="3"><input id="num" class="disable" readonly><i id="hintNum"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>时间：</div></td>
+                    <td class="fill" colspan="3"><input id="date" class="disable" readonly><i id="hintDate"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>信息名称：</div></td>
+                    <td class="fill" colspan="3"><input id="infoName" class="disable" readonly><i id="hintInfoName"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>发布机构：</div></td>
+                    <td class="fill" colspan="3"><input id="publishUnit" class="disable" readonly><i id="hintPublishUnit"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>文号：</div></td>
+                    <td class="fill" colspan="3"><input id="contentCount" class="disable" readonly><i id="hintContentCount"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>发文日期：</div></td>
+                    <td class="fill" colspan="3"><input id="contentDate" class="disable" readonly><i id="hintContentDate"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="special"><span>＊</span>内容描述：<i id="hintContentDescribe" class="special"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <textarea id="contentDescribe" class="disable" readonly></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table class="innerTable">
+                            <tr><td colspan="4" class="tableTitle">公开信息目录：<i id="hintForInfoList" class="special"></i></td></tr>
+                            <tr><td colspan="4" id="tableLineList"></td></tr>
+                            <tr class="tableLineEdit disappear editBegin">
+                                <td class="label" valign="top" style="width: 15%"><div><span>＊</span>信息名称：</div></td>
+                                <td colspan="3" class="single"><input id="inputForInfoName" class="default"><i id="hintForInfoName"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top" style="width: 15%"><div><span>＊</span>内容描述：</div></td>
+                                <td colspan="3" class="single"><input id="inputForContentDescribe" class="default"><i id="hintForContentDescribe"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top" style="width: 15%"><div><span>＊</span>索取号：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForGetNum" class="default"><i id="hintForGetNum"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="label" valign="top" style="width: 15%"><div><span>＊</span>发布机构：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForReleaseOrg" class="default"><i id="hintForReleaseOrg"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top" style="width: 15%"><div><span>＊</span>产生日期：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForGenerateDate" class="longDate"><i id="hintForGenerateDate"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="label" valign="top" style="width: 15%"><div><span>＊</span>关键字：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForKeyWord" class="default"><i id="hintForKeyWord"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear editEnd"><td colspan="4" class="center"><button id="saveForTableLine">保存</button></td></tr>
+                            <tr><td colspan="4" class="center"><button id="moreTableLine">+继续添加</button></td></tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceAdminMainLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

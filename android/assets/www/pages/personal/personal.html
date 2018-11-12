@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+    /*目录栏*/
+    .container {
+        font-family: '微软雅黑';
+    }
+    .container .tab {
+        overflow: hidden;
+        background: #e7f2f9;
+    }
+    .container .tab a {
+        display: block;
+        padding: 14px 30px;
+        float: left;
+        text-decoration: none;
+        color: #333;
+        transition: background 0.2s ease-in;
+    }
+    .container .tab a:hover {
+        background: #3B9FE1;
+        color: #fff;
+        text-decoration: none;
+    }
+    .container .tab a.current {
+        background: #3B9FE1;
+        color: #fff;
+        text-decoration: none;
+    }
+    .container .content {
+        overflow: hidden;
+        padding: 10px 0;
+    }
+
+    /*文本内容*/
+    .formInfo{
+        margin-top: 10px;
+    }
+    .formInfo label {
+        position: relative;
+        float: left;
+        padding-left: 37px;
+        width: 6em;
+        height: 30px;
+        line-height: 30px;
+        text-align: right;
+    }
+    .formInfo input{
+        width: 250px;
+        height: 28px;
+        border:solid 1px;
+        *line-height: 28px;
+        padding: 0 10px;
+    }
+
+    /*按钮*/
+    .buttons a{
+        margin-top: 10px;
+        margin-left: 120px;
+        float: left;
+        left:50px;
+        line-height: 24px;
+        color: #fff;
+        text-decoration: none;
+        background: #3b9fe1;
+    }
+    .buttons a.confirm{
+        padding: 5px 20px 5px 20px;
+        background:#3b9fe1 ;
+    }
+    .imp {
+        color: #fc0000;
+    }
+</style>
+
+<title>我的资料信息</title>
+</head>
+
+<body>
+
+<div class="container" data-trigger="click">
+    <div class="tab">
+        <a href="javascript:;" class="current"><span style="font-size:15px">基本信息</span></a>
+        <a href="javascript:;"><span style="font-size:15px">工资单查询</span></a>
+        <a href="javascript:;"><span style="font-size:15px">密码修改</span></a>
+    </div>
+    <div class="content">
+        <div class="content-item">
+            <form name="f1" id="f1">
+                <div class="formInfo">
+                    <label>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
+                    <div  style="line-height:30px;">
+                        <span id = "name"></span>
+                    </div>
+                </div>
+                <div class="formInfo ">
+                    <label>身份证号：</label>
+                    <div style="line-height:30px;">
+                        <span id = "IDNumber"></span>
+                    </div>
+                </div>
+                <div class="formInfo ">
+                    <label>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label>
+                    <div style="line-height:30px;">
+                        <span id = "gender">男</span>
+                    </div>
+                </div>
+                <div class="formInfo ">
+                    <label>职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</label>
+                    <div  style="line-height:30px;">
+                        <span id = "position">计划科科员</span>
+                    </div>
+                </div>
+                <div class="formInfo ">
+                    <label>部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门：</label>
+                    <div style="line-height:30px;">
+                        <span id = "department">计划科</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="content-item"></div>
+
+        <div class="content-item">
+            <div class="formInfo ">
+                <label><span class="imp">*</span>原密码：</label>
+                <div>
+                    <input type="text" placeholder="原密码">
+                </div>
+            </div>
+            <div class="formInfo ">
+                <label><span class="imp">*</span>新密码：</label>
+                <div>
+                    <input type="text" placeholder="新密码">
+                </div>
+            </div>
+            <div class="formInfo ">
+                <label><span class="imp">*</span>确认密码：</label>
+                <div>
+                    <input type="text" placeholder="确认密码">
+                </div>
+            </div>
+            <div class="buttons">
+                <a href="javascript:;" class="confirm">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="../../../resources/js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="../../../resources/js/common.js"></script>
+<script>
+    $(document).ready(function(argument) {
+        $.each($('.container'), function(){
+            var index = $(this).find('.tab').find('.current').index();
+            tabShowIndex($(this), index);
+            var trigger = $(this).data('trigger'),
+                    $self = $(this);
+            $(this).on(trigger, '.tab>a', function(){
+                $(this).siblings().removeClass('current').end().addClass('current');
+                tabShowIndex($self, $(this).index());
+            });
+        });
+        function tabShowIndex($tab, index){
+            $tab.find('.content-item').hide().eq(index).show();
+        }
+
+    })
+
+    window.onload=function init()
+    {
+        var map = getCookieValue();
+        var name = map.name;
+        document.getElementById("name").innerHTML = name;
+        var gender = map.gender;
+        document.getElementById("gender").innerHTML = gender;
+        var idCode = map.idCode;
+        document.getElementById("IDNumber").innerHTML =idCode;
+        var roleList = JSON.parse(map.roleList);
+        document.getElementById("position").innerHTML = roleList[0].name;
+        var department = JSON.parse(map.department);
+        document.getElementById("department").innerHTML = department.name;
+    };
+
+
+</script>
+
+</html>

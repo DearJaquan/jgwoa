@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>区建管委（区交通委）合同会审表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/contractReview2.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1">区建管委（区交通委）</div>
+            <div class="name2">合同会审表</div>
+            <div class="secondName">【20万以下项目】</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>合同编号：</div></td>
+                    <td class="fill">
+                        <select id="contractType" class="disable" disabled>
+                            <option value="A" selected="selected">工程类</option>
+                            <option value="B">服务类</option>
+                        </select>
+                        <input id="contractNumber" class="disable" readonly/>
+                        <i id="hintContractNumber"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>项目名称：</div></td>
+                    <td colspan="3" class="single"><input id="projectName" class="disable" readonly><i id="hintProjectName"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table class="innerTable">
+                            <tr><td colspan="4" class="tableTitle">公司信息：<i id="hintForApply" class="special"></i></td></tr>
+                            <tr><td colspan="4" id="tableLineList"></td></tr>
+                            <tr class="tableLineEdit disappear editBegin">
+                                <td class="label" valign="top"><div><span>＊</span>公司名称：</div></td>
+                                <td class="fill"><input id="inputForCompanyName" class="default"><i id="hintForCompanyName"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>报价：</div></td>
+                                <td class="fill"><input id="inputForOffer" class="default"><i id="hintForOffer"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear editEnd"><td colspan="4" class="center"><button id="saveForTableLine">保存</button></td></tr>
+                            <tr><td colspan="4" class="center"><button id="moreTableLine">+继续添加</button></td></tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>合作建议：</div></td>
+                    <td class="fill">
+                        <select id="suggestion" class="disable" disabled></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="special"><span>＊</span>询价比价情况：<i id="hintInquiryPriceComparison" class="special"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <textarea id="inquiryPriceComparison" class="disable" readonly></textarea>
+                    </td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceReviewGroupArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceMainLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceLegalAdviserArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceAdminMainLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

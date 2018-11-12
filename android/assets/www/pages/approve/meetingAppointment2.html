@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>会议预约</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/meetingAppointment2.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr><td><div class="name">会议预约</div></td></tr>
+    <tr><td><div id="control"></div></td></tr>
+    <tr><td><table class="content">
+        <tr><td colspan="4" class="title">文件内容：<span id="launchRoleArea"></span></td></tr>
+        <tr>
+            <td colspan="1" class="label" valign="top"><div><span>＊</span>会议时间：</div></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="single">
+                <input id="meetingTimeFrom" class="disableDate" style="width: 45%;margin-left: 3%" readonly>
+                <span>-</span>
+                <input id="meetingTimeTo" class="disableDate" style="width: 45%" readonly>
+                <i id="hintMeetingTime"></i>
+            </td>
+        </tr>
+        <tr>
+            <td class="label" valign="top"><div><span>＊</span>会议名称：</div></td>
+            <td class="fill"><input id="meetingName" class="disable" readonly><i id="hintMeetingName"></i></td>
+        </tr>
+        <tr>
+            <td class="label" valign="top"><div><span>＊</span>会议地点：</div></td>
+            <td class="fill">
+                <select id="meetingRoom" class="disable" disabled>
+                    <option value="A321" selected="selected">A321</option>
+                    <option value="B212">B212</option>
+                </select>
+                <i id="hintMeetingRome"></i>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="special">备注：<i id="hintMeetingComment" class="special"></i>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center"><textarea id="meetingComment" class="disable" readonly></textarea>
+            </td>
+        </tr>
+        <tr><td colspan="4" class="special">会议人员：<i id="hintForMeetingPerson" class="special"></i></td></tr>
+        <tr id="showPersonSelect">
+            <td colspan="4">
+                <label for="roleType">科室部门：</label>
+                <select id="roleType" class="meeting"></select>
+                <br>
+                <label for="personName">人员名称：</label>
+                <select id="personName" class="meeting"></select>
+            </td>
+        </tr>
+        <tr  id="showIsAttend" style="display: none;width: 100%">
+            <td style="text-align: right">
+                <label for="isAttend"><span style="color: red">＊</span>是否参加：</label>
+            </td>
+            <td colspan="3">
+                <select id="isAttend" class="isAttend">
+                    <option value="yes">是</option>
+                    <option value="no" selected>否</option>
+                </select>
+            </td>
+        </tr>
+        <tr id="showAttendPerson">
+            <td colspan="4" class="special">
+                <div class="comtitle">
+                    <span><img src="../../resources/images/clist.png" /></span>
+                    <label>出席人员(0)</label>
+                    <div class="rline"></div>
+                </div>
+            </td>
+        </tr>
+        <tr><td colspan="4" align="center"><ul id="attendList" class="yhlblist"></ul></td></tr>
+        <tr id="showReturnReason">
+            <td class="label" valign="top"><div>情况说明：</div></td>
+            <td colspan="3" class="single"><input id="meetingChangeReason" class="disable" readonly><i id="hintMeetingChangeReason"></i></td>
+        </tr>
+        <tr class="showReturnDetail">
+            <td colspan="4" class="special">变化情况：<i id="hintMeetingChange" class="special"></i></td>
+        </tr>
+        <tr class="showReturnDetail">
+            <td colspan="4" align="center">
+                <textarea id="meetingChange" class="disable" readonly></textarea>
+            </td>
+        </tr>
+        <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+        <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+    </table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,84 @@
+#maskHistory{
+    background-color:#ccc;
+    opacity:0.7;
+    filter: alpha(opacity=70);
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:1000;
+}
+#showHistory{
+    position:fixed;
+    z-index:1001;
+}
+#relateTableSelect{
+    position:fixed;
+    z-index:1001;
+    width:100%;
+    height:400px;
+    background:rgba(0,0,0,0.2);
+    border: solid 1px;
+}
+#relateTypeSelect{
+    width:100%;
+    height:33px;
+}
+#relateTableDetail{
+    width:100%;
+    height:377px;
+}
+.showCon{
+    position:relative;
+    width:670px;
+    height:380px;
+    background:lightblue;
+    border:3px solid #333;
+    text-align: center;
+}
+#historyTitle{
+    width: 660px;
+    height: 30px;
+}
+#historyInfo{
+    width: 660px;
+    height: 340px;
+    background:lightblue;
+    overflow-x: hidden;
+    overflow-y: auto;
+    resize: none;
+}
+
+.backIcon img{
+    height: 45px;
+    width: 45px;
+    position: fixed;
+    z-index:100;
+    right:0;
+    top:0;
+}
+
+#viewer{
+    background-color: #ffffff;
+    opacity:1;
+    filter: alpha(opacity=100);
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:500;
+}
+
+#backPDF{
+    position: fixed;
+    z-index:1000;
+    right:0;
+    top:0;
+}
+
+#backPDF img{
+    height: 45px;
+    width: 45px;
+    position: fixed;
+    z-index:1000;
+    right:0;
+    top:0;
+}

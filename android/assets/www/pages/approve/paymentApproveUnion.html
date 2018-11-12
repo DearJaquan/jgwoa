@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>嘉定区建管委付款审批单</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/paymentApproveUnion.js"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1">嘉定区建管委</div>
+            <div class="name2">付款审批单</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>日期：</div></td>
+                    <td class="fill"><input id="date" class="disable" readonly><i id="hintDate"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>申请部门：</div></td>
+                    <td class="fill"><input id="applicationDept" class="disable" readonly><i id="hintApplicationDept"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>支付金额：</div></td>
+                    <td class="fill"><input id="paymentAmount" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintPaymentAmount"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>附件张数：</div></td>
+                    <td class="fill"><input id="amount" class="disable" readonly><i id="hintAmount"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="special"><span>＊</span>申请事由：<i id="hintApplicationReason" class="special"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <textarea id="applicationReason" class="disable" readonly></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>支付方式：</div></td>
+                    <td colspan="3" class="single">
+                        <label class="radio"><input type="radio" name="paymentMethod" value="公务卡" id="paymentMethod1" disabled>公务卡</label>
+                        <label class="radio"><input type="radio" name="paymentMethod" value="转账" id="paymentMethod2" disabled>转账</label>
+                        <label class="radio"><input type="radio" name="paymentMethod" value="现金" id="paymentMethod3" disabled>现金</label>
+                        <i id="hintPaymentMethod"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>收款单位：</div></td>
+                    <td class="fill"><input id="payee" class="disable" readonly><i id="hintPayee"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>收款账户：</div></td>
+                    <td class="fill"><input id="payeeAccount" class="disable" readonly><i id="hintPayeeAccount"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>收款银行：</div></td>
+                    <td class="fill"><input id="payeeBank" class="disable" readonly><i id="hintPayeeBank"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>资金渠道：</div></td>
+                    <td class="fill"><input id="fundingChannels" class="disable" readonly><i id="hintFundingChannels"></i></td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="advicePlanningSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceMainLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

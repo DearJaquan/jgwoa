@@ -1,0 +1,88 @@
+#popup_container {
+    width: 90%;
+    height: 220px;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    background: #fcfdfd;
+    box-shadow: 1px 8px 10px 1px #9b9b9b;
+    border-radius: 1px;
+    behavior: url(../js/extend/design/pie.htc);
+    z-index: 111111;
+}
+/* http://keleyi.com 柯乐义*/
+#popup_title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-align: left;
+    padding-left: 20px;
+    margin: 0;
+    height: 40px;
+    line-height: 40px;
+    background: url(../resources/images/tcbg.gif) repeat-x;
+    cursor: pointer;
+}
+
+#popup_content {
+
+}
+
+#popup_content.prompt {
+
+}
+
+#popup_message {
+    padding-top:30px;height:95px;
+    padding-left: 65px;
+    padding-right: 65px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 35px;
+}
+
+#popup_prompt {
+    width: 345px;
+    height: 32px;
+    line-height: 32px;
+    border-top: solid 1px #a7b5bc;
+    border-left: solid 1px #a7b5bc;
+    border-right: solid 1px #ced9df;
+    border-bottom: solid 1px #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+}
+
+#popup_panel {
+    text-align: center;
+}
+
+#popup_ok {
+    width: 96px;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    background: url(../resources/images/btnbg1.png) repeat-x;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#popup_cancel {
+    width: 96px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    background: url(../resources/images/btnbg2.png) repeat-x;
+    color: #000;
+    font-weight: normal;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}

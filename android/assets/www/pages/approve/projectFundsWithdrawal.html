@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>嘉定区预算单位项目经费提现备案表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/projectFundsWithdrawal.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name">项目经费提现备案表</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>年度：</div></td>
+                    <td colspan="3" class="fill"><input id="year" class="disable" readonly><i id="hintYear"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>单位名称：</div></td>
+                    <td colspan="3" class="fill"><input id="unitName" class="disable" readonly><i id="hintUnitName"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div style="font-size: 3.7vw"><span>*</span>单位负责人：</div></td>
+                    <td colspan="3" class="fill"><input id="unitManager" class="disable" readonly><i id="hintUnitManager"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>*</span>联系人：</div></td>
+                    <td colspan="3" class="fill"><input id="contact" class="disable" readonly><i id="hintContact"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>*</span>联系电话：</div></td>
+                    <td colspan="3" class="fill"><input id="telPhone" class="disable" readonly><i id="hintTelPhone"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>*</span>项目名称：</div></td>
+                    <td colspan="3" class="fill"><input id="projectName" class="disable" readonly><i id="hintProjectName"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>*</span>项目预算：</div></td>
+                    <td colspan="3" class="fill"><input id="projectBudget" class="disableMoney" readonly>&nbsp;&nbsp;万元<i id="hintProjectBudget"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>*</span>提现总额：</div></td>
+                    <td colspan="3" class="fill"><input id="withdrawTotal" class="disableMoney" readonly>&nbsp;&nbsp;万元<i id="hintWithdrawTotal"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>*</span>本次提现：</div></td>
+                    <td colspan="3" class="fill"><input id="withdrawThis" class="disableMoney" readonly>&nbsp;&nbsp;万元<i id="hintWithdrawThis"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="special"><span>＊</span>项目经费现金支出主要内容：<i id="hintPayDetail" class="special"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <textarea id="payDetail" class="disable" readonly></textarea>
+                    </td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceUnitManagerArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceAdminMainLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

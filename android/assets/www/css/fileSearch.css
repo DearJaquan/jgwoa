@@ -1,0 +1,136 @@
+﻿/**
+ * Created by feijiahui on 2017/11/1.
+ */
+
+
+body{
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-size:16px;
+    font-family: Microsoft YaHei;
+}
+
+/* screening */
+div.screening{
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    position: fixed;
+    z-index: 4;
+    list-style-type: none;
+    border-bottom: solid 1px #d3d3d3;
+    line-height: 3rem;
+}
+div.screening a img{
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+}
+
+
+div.screening select.default {
+    width: 150px;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+}
+
+
+
+
+/* grade */
+.condition{
+    position:fixed;
+    top: -65%;
+    width: 100%;
+    height: 63%;
+    z-index: 1;
+    -webkit-transition-duration: 0.4s;
+}
+
+.condition>ul{
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    -webkit-transition-duration: 0.4s;
+}
+.condition>ul>li{
+    width: 100%;
+	height: 3rem;
+    line-height: 3rem;
+    font-size: 14px;
+    border-bottom: solid 1px #eee;
+}
+.condition>ul>li>div{
+    width: 100%;
+}
+
+.condition>ul>li>div>label:first-child{
+    width: 25%;
+    float: left;
+    text-align: right;
+}
+.condition>ul.condition_a{
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+}
+
+.condition .condition_a .dateinput {
+    width: 32%;
+    height: 30px;
+    line-height: 30px;
+    border-top: solid 1px #a7b5bc;
+    border-left: solid 1px #a7b5bc;
+    border-right: solid 1px #ced9df;
+    border-bottom: solid 1px #ced9df;
+    background: url(../resources/images/inputdatebg.png) right repeat-x;
+    text-indent: 10px;
+}
+.condition .condition_a select.default {
+    width: 67%;
+    height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+}
+
+.condition .condition_a .dfinput {
+    width: 67%;
+    height: 29px;
+    line-height: 30px;
+    border-top: solid 1px #a7b5bc;
+    border-left: solid 1px #a7b5bc;
+    border-right: solid 1px #ced9df;
+    border-bottom: solid 1px #ced9df;
+    background: url(../resources/images/inputbg.gif) repeat-x;
+    text-indent: 10px;
+}
+
+
+.grade-w-roll{
+top: 3rem;
+}
+.grade-w-roll::after{
+    position: fixed;
+    content: "";
+    width: 100%;
+    /*height: 100%;*/
+    display: block;
+    background:rgba(0,0,0,0.2);
+    top: 0;
+}
+
+
+
+
+
+

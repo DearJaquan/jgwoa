@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>项目资金拨款(用款计划)审核表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/projectAppropriationReview.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1" style="font-size: 8vw">项目资金拨款(用款计划)</div>
+            <div class="name2" style="font-size: 8vw">审核表</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>预算单位：</div></td>
+                    <td colspan="3" class="fill"><input id="budgetUnit" class="disable" readonly><i id="hintBudgetUnit"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div style="font-size: 3.6vw"><span>*</span>单位负责人：</div></td>
+                    <td colspan="3" class="fill"><input id="headUnit" class="disable" readonly><i id="hintHeadUnit"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>*</span>联系人：</div></td>
+                    <td colspan="3" class="fill"><input id="contacts" class="disable" readonly><i id="hintContacts"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>*</span>联系电话：</div></td>
+                    <td colspan="3" class="fill"><input id="tel" class="disable" readonly><i id="hintTel"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div style="font-size: 3.8vw"><span>＊</span>项目名称：</div></td>
+                    <td colspan="3" class="single"><input id="projectName" class="disable" readonly><i id="hintProjectName"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>预算安排：</div></td>
+                    <td colspan="3" class="fill"><input id="budgetPlan" class="disable" readonly><i id="hintBudgetPlan"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div style="font-size: 3.6vw"><span>*</span>预算内资金：</div></td>
+                    <td colspan="3" class="fill"><input id="budgetFund" class="disableMoney" readonly>&nbsp;&nbsp;万元<i id="hintBudgetFund"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div style="font-size: 3.1vw"><span>*</span>财政专户资金：</div></td>
+                    <td colspan="3" class="fill"><input id="specialAccountFund" class="disableMoney" readonly>&nbsp;&nbsp;万元<i id="hintSpecialAccountFund"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div style="font-size: 3.1vw"><span>*</span>财政专项资金：</div></td>
+                    <td colspan="3" class="fill"><input id="specialFund" class="disableMoney" readonly>&nbsp;&nbsp;万元<i id="hintSpecialFund"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table class="innerTable">
+                            <tr><td colspan="4" class="tableTitle">申请明细：<i id="hintForApply" class="special"></i></td></tr>
+                            <tr><td colspan="4" id="tableLineList"></td></tr>
+                            <tr class="tableLineEdit disappear editBegin">
+                                <td class="label" valign="top"><div><span>＊</span>二级构成：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForTwoLevel" class="default"><i id="hintForTwoLevel"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear editBegin">
+                                <td class="label" valign="top"><div><span>＊</span>三级明细：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForThreeLevel" class="default"><i id="hintForThreeLevel"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>资金性质：</div></td>
+                                <td colspan="3" class="fill">
+                                    <select id="selectForFundNature" class="default">
+                                        <option value="预算内资金">预算内资金</option>
+                                        <option value="政府性基金">政府性基金</option>
+                                        <option value="财政专户资金">财政专户资金</option>
+                                        <option value="财政专项资金">财政专项资金</option>
+                                    </select>
+                                    <i id="hintForFundNature"></i>
+                                </td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>政府采购：</div></td>
+                                <td colspan="3" class="fill">
+                                    <select id="selectForExpendType" class="default">
+                                        <option value="是">是</option>
+                                        <option value="否">否</option>
+                                    </select>
+                                    <i id="hintForExpendType"></i>
+                                </td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>预算数：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForBudgetAmount" class="money">&nbsp;&nbsp;万元<i id="hintForBudgetAmount"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>本次申请：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForApplyNumber" class="money">&nbsp;&nbsp;万元<i id="hintForApplyNumber"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>累计批拨：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForCumulativeNumber" class="money">&nbsp;&nbsp;万元<i id="hintForCumulativeNumber"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>支付方式：</div></td>
+                                <td colspan="3" class="fill">
+                                    <select id="selectForPayType" class="default">
+                                        <option value="直接支付">直接支付</option>
+                                        <option value="授权支付">授权支付</option>
+                                    </select>
+                                    <i id="hintForPayType"></i>
+                                </td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>收款户名：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForBeneficiaryName" class="default"><i id="hintForBeneficiaryName"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>账号：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForAccount" class="default"><i id="hintForAccount"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>开户行：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForBankDeposit" class="default"><i id="hintForBankDeposit"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear editEnd"><td colspan="4" class="center"><button id="saveForTableLine">保存</button></td></tr>
+                            <tr><td colspan="4" class="center"><button id="moreTableLine">+继续添加</button></td></tr>
+                            <tr><td colspan="4" class="tableTitle">申请合计：</td></tr>
+                            <tr>
+                                <td class="label" valign="top"><div><span>＊</span>预算数：</div></td>
+                                <td colspan="3" class="fill"><input id="budgetTotal" class="disableMoney" readonly>&nbsp;&nbsp;万元<i id="hintBudgetTotal"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="label" valign="top"><div><span>＊</span>本次申请：</div></td>
+                                <td colspan="3" class="fill"><input id="applyTotal" class="disableMoney" readonly>&nbsp;&nbsp;万元<i id="hintApplyTotal"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="label" valign="top"><div><span>＊</span>累计批拨：</div></td>
+                                <td colspan="3" class="fill"><input id="cumulativeTotal" class="disableMoney" readonly>&nbsp;&nbsp;万元<i id="hintCumulativeTotal"></i></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div style="font-size: 3.1vw">申请拨款说明：</div></td>
+                    <td colspan="3" class="single"><input id="appropriationExplain" class="disable" readonly><i id="hintAppropriationExplain"></i></td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceUnitManagerArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

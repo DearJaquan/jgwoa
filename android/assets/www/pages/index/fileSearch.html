@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>文件查询页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none"/>
+    <meta name="HandheldFriendly" content="true"/>
+
+    <link type="text/css" rel="stylesheet" href="../../css/commonAPP.css">
+    <link type="text/css" rel="stylesheet" href="../../css/fileSearch.css">
+
+    <script type="text/javascript" src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../js/lib/blocksit.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../js/module/index/fileSearch.js" charset="UTF-8"></script>
+</head>
+<body>
+<!-- screening -->
+<div class="screening">
+    <div>
+        <label style="font-size: 15px;margin-left: 5%">流程类别：</label>
+        <select id="instanceName" onchange="changeQueryCriteria()" class="default"></select>
+
+        <a style="text-decoration: none">
+            <img onclick="search()" src="../../resources/images/app/search.png"/>
+        </a>
+        <a style="text-decoration: none">
+            <img onclick="screening()" src="../../resources/images/app/screening.png"/>
+        </a>
+        <a id="associate" style="text-decoration: none;display: none">
+            <img onclick="associate()" src="../../resources/images/app/associate.png"/>
+        </a>
+
+        <!--<button   onclick="search()">查询</button>-->
+        <!--<button   onclick="screening()">筛选</button>-->
+        <!--<button id="associate" style="display: none" onclick="associate()">关联</button>-->
+    </div>
+</div>
+<!-- End screening -->
+<!-- grade -->
+<div class="condition">
+    <ul class="condition_a" id="condition_a">
+    </ul>
+</div>
+<br>
+
+<div class="table" id="table" style="margin-top: 2rem"></div>
+
+</body>
+</html>

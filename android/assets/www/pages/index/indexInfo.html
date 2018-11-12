@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <link rel="stylesheet" href="../../css/newConfirm.css">
+    <link rel="stylesheet" href="../../css/commonAPP.css">
+    <link rel="stylesheet" href="../../css/indexInfo.css">
+    <title>我的资料信息</title>
+</head>
+<body>
+<div class="container" data-trigger="click" style="width: 100%; padding: 0">
+    <div style="height: 44px">
+        <header id="hd" class="mui-bar mui-bar-nav">
+            <h1 class="mui-title">嘉定区建设和管理委员会</h1>
+        </header>
+    </div>
+    <div id="bd" style="overflow: auto;background-color: #efeff4">
+        <div class="mui-content" style="height: 100%">
+            <div class="content-item">
+                <div class="mui-table-view-cell">
+                    <a href="workClassify.html?type=new" onclick="setTaskStatusToCookie('1')" target="blank">
+                        <span style="margin-left:10% ">我的关注</span>
+                        <span id="concern" class="mui-badge mui-badge-primary" style="display: none"></span>
+                    </a>
+                </div>
+                <div class="mui-table-view-cell">
+                    <a href="workClassify.html?type=new" onclick="setTaskStatusToCookie('2')" target="blank">
+                        <span style="margin-left:10% ">待审批</span>
+                        <span id="approve" class="mui-badge mui-badge-primary" style="display: none"></span>
+                    </a>
+                </div>
+                <div class="mui-table-view-cell">
+                    <a href="workClassify.html?type=new" onclick="setTaskStatusToCookie('4')" target="blank">
+                        <span style="margin-left:10% ">被退回</span>
+                        <span id="return" class="mui-badge mui-badge-primary" style="display: none"></span>
+                    </a>
+                </div>
+                <div class="mui-table-view-cell">
+                    <a href="workClassify.html?type=new" onclick="setTaskStatusToCookie('6')" target="blank">
+                        <span style="margin-left:10% ">待执行</span>
+                        <span id="executed" class="mui-badge mui-badge-primary" style="display: none"></span>
+                    </a>
+                </div>
+                <div class="mui-table-view-cell">
+                    <a href="workClassify.html?type=new" onclick="setTaskStatusToCookie('5')" target="blank">
+                        <span style="margin-left:10% ">进行中</span>
+                        <span id="underWay" class="mui-badge mui-badge-primary" style="display: none"></span>
+                    </a>
+                </div>
+                <div class="mui-table-view-cell">
+                    <a href="workClassify.html?type=new" onclick="setTaskStatusToCookie('3')" target="blank">
+                        <span style="margin-left:10% ">被否决</span>
+                        <span id="reject" class="mui-badge mui-badge-primary" style="display: none"></span>
+                    </a>
+                </div>
+                <div class="mui-table-view-cell">
+                    <a href="workClassify.html?type=new" onclick="setTaskStatusToCookie('8')" target="blank">
+                        <span style="margin-left:10% ">已完成</span>
+                        <span id="finish" class="mui-badge mui-badge-primary" style="display: none"></span>
+                    </a>
+                </div>
+                <div class="mui-table-view-cell">
+                    <a href="workClassify.html?type=new" onclick="setTaskStatusToCookie('7')" target="blank">
+                        <span style="margin-left:10% ">草稿</span>
+                        <span id="draft" class="mui-badge mui-badge-primary" style="display: none"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="content-item">
+                <iframe src="fileSearch.html" id="iframe" width="100%" height="100%" frameborder="0"
+                        style="margin:0;padding: 0;"></iframe>
+            </div>
+            <div class="content-item">
+                <!--<div class="alert" role="alert"></div>-->
+                <div class="tabblock" id="canLaunchInstance" style="margin-left: 8%"></div>
+                <div class="tabblock" id="canLaunchInstanceContract" style="margin-left: 8%"></div>
+                <div class="tabblock" id="canLaunchInstanceFile" style="margin-left: 8%"></div>
+                <div class="tabblock" id="canLaunchInstanceMeeting" style="margin-left: 8%"></div>
+                <div class="tabblock" id="canLaunchInstanceFinance" style="margin-left: 8%"></div>
+            </div>
+            <div class="content-item">
+                <div class="mui-scroll" style="position: static">
+                    <ul class="mui-table-view">
+                        <li class="mui-table-view-cell" style="height: 5%">
+                            <a>姓&nbsp;&nbsp;&nbsp;&nbsp;名<span id="name" class="mui-pull-right"></span></a>
+                        </li>
+                        <!--<li class="mui-table-view-cell">-->
+                            <!--<a>身份证<span id="IDCode" class="mui-pull-right">16 8823 1981 0230 3481</span></a>-->
+                        <!--</li>-->
+                        <!--<li class="mui-table-view-cell">-->
+                            <!--<a>性&nbsp;&nbsp;&nbsp;&nbsp;别<span id="gender" class="mui-pull-right">男</span></a>-->
+                        <!--</li>-->
+                    </ul>
+                    <ul class="mui-table-view" style="margin-top: 20px">
+                        <li id="otherDepartment" class="mui-table-view-cell">
+                            <a>部&nbsp;&nbsp;&nbsp;&nbsp;门<span id="department" class="mui-pull-right"></span></a>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <a>职&nbsp;&nbsp;&nbsp;&nbsp;位<span id="position" class="mui-pull-right"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <button onclick="meeting()" type="button" class="mui-btn mui-btn-blue mui-btn-block button-exit" >个人日程</button>
+                </div>
+                <div>
+                    <button onclick="exit()" type="button" class="mui-btn mui-btn-danger mui-btn-block button-exit" >退出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <nav id="ft" class="mui-bar mui-bar-tab tabbglang">
+            <div class="tab">
+                <a class="mui-tab-item mui-active" href="#">
+                    <span class="mui-icon mui-icon-bars"></span>
+                    <span class="mui-tab-label">查看文件</span>
+                </a>
+                <a class="mui-tab-item" href="#">
+                    <span class="mui-icon mui-icon-search"></span>
+                    <span class="mui-tab-label">查询文件</span>
+                </a>
+                <a class="mui-tab-item" href="#">
+                    <span class="mui-icon mui-icon-compose"></span>
+                    <span class="mui-tab-label">发起文件</span>
+                </a>
+                <a class="mui-tab-item" href="#">
+                    <span class="mui-icon mui-icon-contact"></span>
+                    <span class="mui-tab-label">个人信息</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../cordova.js"></script>
+<script type="text/javascript" src="../../js/module/common/common.js" charset="UTF-8"></script>
+<!--<script type="text/javascript" src="../../js/module/approve/approveCommon.js"></script>-->
+<script type="text/javascript" src="../../js/module/index/indexInfo.js" charset="UTF-8"></script>
+</html>

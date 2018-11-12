@@ -1,0 +1,105 @@
+@charset "utf-8";
+/***
+ * APP通用控件样式
+ */
+
+ul{display:block;margin:0;padding:0;list-style:none;}
+li{display:block;margin:0;padding:0;list-style: none;}
+img{border:0;}
+a,a:focus{text-decoration:none;color:#000;outline:none;blr:expression(this.onFocus=this.blur());}
+a:hover{color:#00a4ac;text-decoration:none;}
+
+.ui-page-login,
+/*body {*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*!*margin: 0;*!*/
+    /*padding: 0;*/
+/*}*/
+.mui-content{height: 100%;}
+
+.tableStyle{
+    table-layout:fixed;
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    margin-top: 5px;
+}
+.tableStyle tr{
+    width: 100%;
+}
+
+.tableStyle input[disabled]{
+    -webkit-appearance: none;
+    outline: none;
+    display:none
+}
+
+.tableStyle .img-concern{
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+}
+
+.tableStyle .firstLine{
+    padding-top: 10px;
+    line-height: 23px;
+    font-weight: 400;
+    font-size: 18px;
+    width: 80%;
+    word-break:keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tableStyle .secondLine1{
+    width: 60%;
+    line-height: 1;
+    font-size: 14px;
+    font-weight: 400;
+    color: #8f8f94;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.tableStyle .secondLine2{
+    width: 20%;
+    line-height: 1;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.tableStyle .secondLine2 a{
+    display: block;
+    width: 80%;
+    height: 25px;
+    opacity:0.7;
+    background-color: #15a3ee;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font: normal 14px/25px "微软雅黑";
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.tableStyle .thirdLine{
+    width: 20%;
+    line-height: 1;
+    font-size: 14px;
+    font-weight: 400;
+    color: #8f8f94;
+    padding-bottom: 10px;
+}
+
+.tableStyle label.checkbox{
+    background-color: #a7b5bc;
+    border: 1px solid #a7b5bc;
+    padding: 5px;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+}

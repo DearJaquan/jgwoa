@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>会议费汇总报销表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/meetingCostGather.js"></script>
+
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name">会议费汇总报销表</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>会议编号：</div></td>
+                    <td class="fill" colspan="3"><input id="meetingNum" class="disable" readonly><i id="hintMeetingNum"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>会议名称：</div></td>
+                    <td class="fill" colspan="3"><input id="meetingName" class="disable" readonly><i id="hintMeetingName"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>会议类别：</div></td>
+                    <td class="fill" colspan="3">
+                        <select id="meetingType" class="disable" disabled>
+                            <option value="三类会议">三类会议</option>
+                            <option value="四类会议" selected="selected">四类会议</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="padding-left:20px;font-style: italic;font-size: 9px;vertical-align: middle">三类会议是由本部门召开，要求相关部门分管负责同志参加的全区性会议；四类会议是除三类会议以外的其他业务性会议。</td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>召开事由：</div></td>
+                    <td class="fill" colspan="3"><input id="meetingReason" class="disable" readonly><i id="hintMeetingReason"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>会议人数：</div></td>
+                    <td class="fill" colspan="3"><input id="meetingNumber" class="disable" readonly><i id="hintMeetingNumber"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>会议时间：</div></td>
+                    <td class="fill" colspan="3"><input id="meetingDate" class="disable" readonly><i id="hintMeetingDate"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>会议地点：</div></td>
+                    <td class="fill" colspan="3"><input id="meetingPlace" class="disable" readonly><i id="hintMeetingPlace"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table class="innerTable">
+                            <tr><td colspan="4" class="tableTitle">费用详情：<i id="hintForBillInfo" class="special"></i></td></tr>
+                            <tr><td colspan="4" id="tableLineList"></td></tr>
+                            <tr class="tableLineEdit disappear editBegin">
+                                <td class="label" valign="top"><div><span>＊</span>内容：</div></td>
+                                <td class="fill" colspan="3">
+                                    <select id="selectForPayContent" class="default">
+                                        <option value="住宿费">住宿费</option>
+                                        <option value="伙食费">伙食费</option>
+                                        <option value="会场费">会场费</option>
+                                        <option value="其他费用" data-count="3">其他费用</option>
+                                    </select>
+                                    <i id="hintForPayContent"></i>
+                                </td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div style="font-size: 13px">单位/号码：</div></td>
+                                <td class="fill" colspan="3"><input id="inputForUnitOrNum" class="default"><i id="hintForUnitOrNum"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>转账金额：</div></td>
+                                <td class="fill" colspan="3"><input id="inputForTransfer" class="money">&nbsp;&nbsp;元<i id="hintInputForTransfer"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>公务卡：</div></td>
+                                <td class="fill" colspan="3"><input id="inputForOfficialCard" class="money">&nbsp;&nbsp;元<i id="hintForMoneyClass"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div>备注：</div></td>
+                                <td colspan="3" class="single"><input id="inputForComment" class="default"><i id="hintForComment"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear editEnd"><td colspan="4" class="center"><button id="saveForTableLine">保存</button></td></tr>
+                            <tr><td colspan="4" class="center"><button id="moreTableLine">+继续添加</button></td></tr>
+                            <tr>
+                                <td class="label" valign="top"><div>转账合计：</div></td>
+                                <td class="fill" colspan="3"><input id="transferTotal" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintTransferTotal"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="label" valign="top"><div>公务卡合计：</div></td>
+                                <td class="fill" colspan="3"><input id="officialCardTotal" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintOfficialCardTotal"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="label" valign="top"><div>合计：</div></td>
+                                <td colspan="3" class="single"><input id="total" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintTotal"></i></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="special"><div><span>＊</span>列支渠道：</div><i id="hintWay" class="special"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>公用经费：</div></td>
+                    <td class="fill" colspan="3"><input id="publishFunds" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintPublishFunds"></i></td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td class="label" valign="top"><div>项目经费：</div></td>-->
+                    <!--<td class="fill" colspan="3"><input id="projectFunds" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintProjectFunds"></i></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td class="label" valign="top"><div>项目名称：</div></td>-->
+                    <!--<td class="fill" colspan="3"><input id="projectName" class="disable" readonly><i id="hintProjectName"></i></td>-->
+                <!--</tr>-->
+                <tr>
+                    <td class="label" valign="top"><div style="font-size: 12px">会议责任单位：</div></td>
+                    <td class="fill" colspan="3"><input id="meetingUnit" class="disable" readonly><i id="hintMeetingUnit"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>会议责任人：</div></td>
+                    <td class="fill" colspan="3"><input id="meetingPerson" class="disable" readonly><i id="hintMeetingPerson"></i></td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

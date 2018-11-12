@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>项目预算申请表&财政支出项目绩效目标申报表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/approve.css">
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js"></script>
+    <script src="../../js/module/common/common.js"></script>
+    <script src="../../js/module/approve/checkValue.js"></script>
+    <script src="../../js/module/approve/approveControl.js"></script>
+    <script src="../../js/module/approve/approveCommon.js"></script>
+    <script src="../../js/module/approve/pages/projectBudgetApplication.js"></script>
+</head>
+<body>
+<div id="workArea" style="margin:0 auto">
+    <div><h1 class="formTitle">项目预算申请表</h1></div>
+    <div id="control"></div>
+    <table style="width:100%">
+        <tr>
+            <td style="width:50%">
+                <label for="applyDepartment" class="formLabel">申报单位：<input id="applyDepartment"></label><br>
+                <div class="hint"></div>
+            </td>
+            <td style="width:50%">
+                <label for="projectName" class="formLabel">项目名称：<input id="projectName"></label><br>
+                <div id="hintProjectName" class="hint"></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50%" >
+                <label for="projectNature" class="formLabel">项目性质：</label><br>
+                <select id="projectNature">
+                    <option value="" selected="selected" class="display-none">请选择项目性质</option>
+                    <option value="1">经常性项目</option>
+                    <option value="2">一次性项目-当年度</option>
+                    <option value="3">一次性项目-跨年度</option>
+                    <option value="4">协同理财项目</option>
+                </select>
+                <div id="hintProjectNature" class="hint"></div>
+            </td>
+            <td style="width:50%">
+                <label for="projectClassify" class="formLabel">项目分类：</label><br>
+                <select id="projectClassify">
+                    <option value="" selected="selected" class="display-none">请选择项目分类</option>
+                    <option value="1">行政管理类</option>
+                    <option value="2">事业管理类</option>
+                    <option value="3">社会事业建设及运维类</option>
+                    <option value="4">城市建设及运维类</option>
+                    <option value="5">社会保障类</option>
+                    <option value="6">社会综合管理类</option>
+                    <option value="7">产业发展类</option>
+                    <option value="8">三农经费类</option>
+                </select>
+                <div id="hintProjectProperty" class="hint"></div>
+            </td>
+        </tr>
+        <tr>
+        <tr>
+            <td style="width:50%">
+                <label for="amountAppliedForThisYear" class="formLabel">本年度申请金额：<input
+                        id="amountAppliedForThisYear"></label><br>
+                <div id="hintAmountAppliedForThisYear" class="hint"></div>
+            </td>
+            <td style="width:50%">
+                <label for="budgetAmountForLastYear" class="formLabel">上年度预算金额：<input
+                        id="budgetAmountForLastYear"></label><br>
+                <div id="hintBudgetAmountForLastYear" class="hint"></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:100%">
+                <label for="actualExpenditureAmountForLastYear" class="formLabel">上年度实际支出金额：<input
+                        id="actualExpenditureAmountForLastYear"></label><br>
+                <div id="hintActualExpenditureAmountForLastYear" class="hint"></div>
+            </td>
+        </tr>
+    </table>
+    <div>项目明细（分二级、三级明细内容及金额）</div>
+    <table style="width:100%">
+        <tr>
+            <td style="width:10%">
+                <label for="secondLevel" class="formLabel">二级：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintSecondLevel" class="hint"></label><br/>
+                <textarea id="secondLevel" style="width:400px"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:10%">
+                <label for="thirdLevel" class="formLabel">三级：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintThirdLevel" class="hint"></label><br/>
+                <textarea id="thirdLevel" style="width:400px"></textarea>
+            </td>
+        </tr>
+    </table>
+    <div class="formLabel">资金使用计划%</div>
+    <table style="width:100%">
+        <tr>
+            <td style="width:25%">
+                <label for="firstQuarter" class="formLabel">一季度：<input id="firstQuarter"></label><br>
+                <div id="hintFirstQuarter" class="hint"></div>
+            </td>
+            <td style="width:25%">
+                <label for="secondQuarter" class="formLabel">二季度：<input id="secondQuarter"></label><br>
+                <div id="hintSecondQuarter" class="hint"></div>
+            </td>
+            <td style="width:25%">
+                <label for="thirdQuarter" class="formLabel">三季度：<input id="thirdQuarter"></label><br>
+                <div id="hintThirdQuarter" class="hint"></div>
+            </td>
+            <td style="width:25%">
+                <label for="fourthQuarter" class="formLabel">四季度：<input id="fourthQuarter"></label><br>
+                <div id="hintFourthQuarter" class="hint"></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:25%" colspan="2">
+                <label for="cashAmount" class="formLabel">现金使用额度：<input id="cashAmount"></label><br>
+                <div id="hintCashAmount" class="hint"></div>
+            </td>
+            <td style="width:25%" colspan="2">
+                <label for="cashContent" class="formLabel">现金支出内容：<input id="cashContent"></label><br>
+                <div id="hintCashContent" class="hint"></div>
+            </td>
+        </tr>
+    </table>
+    <!--<div class="formLabel">项目依据（文件名及文号，文件另附）</div>-->
+    <table style="width:100%">
+        <tr>
+            <td style="width:20%">
+                <label for="projectBasis" class="formLabel">项目依据：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintProjectBasis" class="hint"></label><br/>
+                <textarea id="projectBasis" style="width:400px"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%">
+                <label for="projectContent" class="formLabel">项目主要内容：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintProjectContent" class="hint"></label><br/>
+                <textarea id="projectContent" style="width:400px"></textarea>
+            </td>
+        </tr>
+    </table>
+    <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+    <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+    <div><h1 class="formTitle">财政支出项目绩效目标申报表</h1></div>
+    <table style="width:100%">
+        <tr>
+            <td style="width:50%">
+                <label for="year" class="formLabel">年份：<input id="year"></label><br>
+                <div class="hint"></div>
+            </td>
+            <td style="width:50%">
+                <label for="unitName" class="formLabel">申报单位名称：<input id="unitName"></label><br>
+                <div id="hintUnitName" class="hint"></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50%">
+                <label for="projectName_1" class="formLabel">项目名称：<input id="projectName_1"></label><br>
+                <div class="hint"></div>
+            </td>
+            <td style="width:50%">
+                <div id="hintProjectType" class="hint"></div>
+                <label for="projectType" class="formLabel">项目类型：</label>
+                <select id="projectType">
+                    <option value="" selected="selected" class="display-none">请选择项目类型</option>
+                    <option value="1">业务费</option>
+                    <option value="2">经常性专项</option>
+                    <option value="3">其他专项</option>
+                    <option value="4">当年一次性项目</option>
+                    <option value="5">跨年度一次性项目</option>
+                    <option value="6">国有资本经营预算支出</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50%">
+                <label for="principal" class="formLabel">项目负责人：<input id="principal"></label><br>
+                <div id="hintPrincipal" class="hint"></div>
+            </td>
+            <td style="width:50%">
+                <label for="contact" class="formLabel">联系人：<input id="contact"></label><br>
+                <div id="hintContact" class="hint"></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50%">
+                <label for="tel" class="formLabel">联系电话：<input id="tel"></label><br>
+                <div id="hintTel" class="hint"></div>
+            </td>
+            <td style="width:50%">
+                <label for="scheduledStartDate" class="formLabel">计划开始日期：<input id="scheduledStartDate"></label><br>
+                <div id="hintScheduledStartDate" class="hint"></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50%">
+                <label for="scheduledCompletionDate" class="formLabel">计划完成日期：<input
+                        id="scheduledCompletionDate"></label><br>
+                <div id="hintScheduledCompletionDate" class="hint"></div>
+            </td>
+            <td style="width:50%">
+                <div id="hintCapitalUSES" class="hint"></div>
+                <label for="capitalUSES" class="formLabel">资金用途：</label>
+                <select id="capitalUSES">
+                    <option value="" selected="selected" class="display-none">请选择资金用途</option>
+                    <option value="1">事业/专业类</option>
+                    <option value="2">基本建设工程类</option>
+                    <option value="3">信息化建设工程类</option>
+                    <option value="4">政策补贴类</option>
+                    <option value="5">政府购买类</option>
+                    <option value="6">其他</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50%">
+                <label for="capitalBudget" class="formLabel">资金总预算：<input id="capitalBudget"></label><br>
+                <div id="hintCapitalBudget" class="hint"></div>
+            </td>
+            <td style="width:50%">
+                <label for="projectBudget" class="formLabel">项目当年预算：<input id="projectBudget"></label><br>
+                <div id="hintProjectBudget" class="hint"></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50%">
+                <label for="sameProjectNameBudgetNumForLastYear" class="formLabel">同名项目上年预算表：<input
+                        id="sameProjectNameBudgetNumForLastYear"></label><br>
+                <div id="hintSameProjectNameBudgetNumForLastYear" class="hint"></div>
+            </td>
+            <td style="width:50%">
+                <label for="sameProjectNameExecutionNumForLastYear" class="formLabel">同名项目上年执行数：<input
+                        id="sameProjectNameExecutionNumForLastYear"></label><br>
+                <div id="hintSameProjectNameExecutionNumForLastYear" class="hint"></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50%">
+                <label for="budgetExecutionRate" class="formLabel">预算执行率：<input id="budgetExecutionRate"></label><br>
+                <div id="hintBudgetExecutionRate" class="hint"></div>
+            </td>
+        </tr>
+    </table>
+    <table style="width:100%">
+        <tr>
+            <td style="width:20%">
+                <label for="basicFacts" class="formLabel">项目概况：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintBasicFacts" class="hint"></label><br/>
+                <textarea id="basicFacts" style="width:400px"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%">
+                <label for="basisForProjectApproval" class="formLabel">立项依据：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintBasisForProjectApproval" class="hint"></label><br/>
+                <textarea id="basisForProjectApproval" style="width:400px"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%">
+                <label for="necessityOfProjectEstablishment" class="formLabel">项目设立必要性：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintNecessityOfProjectEstablishment" class="hint"></label><br/>
+                <textarea id="necessityOfProjectEstablishment" style="width:400px"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%">
+                <label for="ensureProjectImplementation" class="formLabel">保证项目实施的制度、措施：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintEnsureProjectImplementation" class="hint"></label><br/>
+                <textarea id="ensureProjectImplementation" style="width:400px"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%">
+                <label for="projectExecutionPlan" class="formLabel">项目实施计划：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintProjectExecutionPlan" class="hint"></label><br/>
+                <textarea id="projectExecutionPlan" style="width:400px"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%">
+                <label for="generalObjectiveOfProject" class="formLabel">项目总目标：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintGeneralObjectiveOfProject" class="hint"></label><br/>
+                <textarea id="generalObjectiveOfProject" style="width:400px"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%">
+                <label for="annualPerformanceTarget" class="formLabel">年度绩效目标：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintAnnualPerformanceTarget" class="hint"></label><br/>
+                <textarea id="annualPerformanceTarget" style="width:400px"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%">
+                <label for="remark" class="formLabel">需要说明的其他问题：</label>
+            </td>
+            <td style="width:75%">
+                <label id="hintRemark" class="hint"></label><br/>
+                <textarea id="remark" style="width:400px"></textarea>
+            </td>
+        </tr>
+    </table>
+    <div class="marginBig">
+        <label for="adviceBranchLeader" class="formLabel">分管领导意见：<span id="hintAdviceBranchLeader"></span></label><br/>
+        <div class="verticalMiddle">
+            <textarea id="adviceBranchLeader" class="formAdvice"></textarea>
+            <button id="historyAdviceBranchLeader" class="formHistory">H</button>
+        </div>
+    </div>
+    <div class="marginBig">
+        <label for="adviceSectionChief" class="formLabel">计划科科长意见：<span id="hintAdviceSectionChief"></span></label><br/>
+        <div class="verticalMiddle">
+            <textarea id="adviceSectionChief" class="formAdvice"></textarea>
+            <button id="historyAdviceSectionChief" class="formHistory">H</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>嘉定区建管委外出公务活动及用车申请表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/publicAffairsAndVehicleApplication.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td><div class="name1" style="font-size: 7vw">嘉定区建管委</div>
+            <div class="name2" style="font-size: 7vw">外出公务活动及用车申请表</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        用车申请文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>附件张数：</div></td>
+                    <td colspan="3" class="fill"><input id="amountApply" class="disable" readonly><i id="hintAmountApply"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>主办方：</div></td>
+                    <td colspan="3" class="fill">
+                        <select id="isSelfUnit" class="disable" disabled>
+                            <option value="true" selected="selected">本单位</option>
+                            <option value="false">外单位</option>
+                        </select>
+                        <i></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div class="isShowUnitName"><span>*</span>单位名称：</div></td>
+                    <td colspan="3" class="fill"><input id="unitName" class="disable isShowUnitName" readonly><i id="hintUnitName"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>公务内容：</div></td>
+                    <td colspan="3" class="single"><input id="businessContent" class="disable" readonly><i id="hintBusinessContent"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>出行地点：</div></td>
+                    <td colspan="3" class="fill">
+                        <select id="toWhere" class="disable" disabled>
+                            <option value="外省">外省</option>
+                            <option value="市内">市内</option>
+                            <option value="区内" selected="selected">区内</option>
+                        </select>
+                        <i></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div class="isShowPlaceName"><span>*</span>地点名称：</div></td>
+                    <td colspan="3" class="fill"><input id="placeName" class="disable isShowPlaceName" readonly><i id="hintPlaceName"></i></td>
+                </tr>
+                <tr id="showSelectUrbanPlace">
+                    <td class="label" valign="top"><div><span>＊</span>区内地点：</div></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <label class="checkBox" style="font-size: 3.6vw;width: 100%"><input type="checkbox" name="urban" value="中心城区" id="urbanCenterCheckBox" disabled>中心城区</label><br>
+                        <input id="urbanCenterPlace" class="disableUrbanPlace" readonly><i id="hintUrbanCenterPlace"></i>
+                        <label class="checkBox" style="font-size: 3.6vw;width: 100%"><input type="checkbox" name="urban" value="中心城区外一类地区" id="urbanOneCheckBox" disabled>中心城区外一类地区(南翔、华亭、外冈、工业北区)</label><br>
+                        <input id="urbanOnePlace" class="disableUrbanPlace" readonly><i id="hintUrbanOnePlace"></i>
+                        <label class="checkBox" style="font-size: 3.6vw;width: 100%"><input type="checkbox" name="urban" value="中心城区外二类地区" id="urbanTwoCheckBox" disabled>中心城区外二类地区(安亭、江桥、真新街道)</label><br>
+                        <input id="urbanTwoPlace" class="disableUrbanPlace" readonly><i id="hintUrbanTwoPlace"></i>
+                        <i id="hintUrbanPlace"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top">
+                        <div><span>＊</span>出行时间：</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="single">
+                        <input id="outTimeFrom" class="disableDate" style="width: 45%;margin-left: 3%" readonly>
+                        <span>-</span>
+                        <input id="outTimeTo" class="disableDate" style="width: 45%" readonly>
+                        <i id="hintOutTime"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>出行天数：</div></td>
+                    <td colspan="3" class="fill"><input id="outDays" class="disableMoney" readonly>&nbsp;&nbsp;天<i id="hintOutDays"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>参加科室：</div></td>
+                    <td colspan="3" class="fill">
+                        <select id="attendSection" class="disable" disabled></select><i id="hintAttendSection"></i>
+                    </td>
+                </tr>
+                <tr><td colspan="4" class="special">参加人员：<i id="hintForMeetingPerson" class="special"></i></td></tr>
+                <tr id="showPersonSelect">
+                    <td colspan="4">
+                        <label for="roleType" style="margin-left: 15%">科室部门：</label>
+                        <select id="roleType" class="meeting"></select>
+                        <br>
+                        <label for="personName" style="margin-left: 15%">人员名称：</label>
+                        <select id="personName" class="meeting"></select>
+                    </td>
+                </tr>
+                <tr id="showAttendPerson">
+                    <td colspan="4" class="special">
+                        <div class="comtitle">
+                            <span><img src="../../resources/images/clist.png" /></span>
+                            <label>人员名单(0)</label>
+                            <div class="rline"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr><td colspan="4" align="center"><ul id="attendList" class="yhlblist"></ul></td></tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>伙食：</div></td>
+                    <td colspan="3" class="fill">
+                        <select id="eatWay" class="disable" disabled>
+                            <option value="自行用餐" selected="selected">自行用餐</option>
+                            <option value="统一安排">统一安排</option>
+                        </select>
+                        <i></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>是否住宿：</div></td>
+                    <td colspan="3" class="fill">
+                        <select id="isLive" class="disable" disabled>
+                            <option value="false" selected="selected">否</option>
+                            <option value="true">是</option>
+                        </select>
+                        <i></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>出行方式：</div></td>
+                    <td colspan="3" class="fill">
+                        <select id="outWay" class="disable" disabled>
+                            <option value="自行前往" selected="selected">自行前往</option>
+                            <option value="外省自驾">外省自驾</option>
+                        </select>
+                        <i></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div class="isShowKilometers"><span>*</span>公里数：</div></td>
+                    <td colspan="3" class="fill"><div class="isShowKilometers"><input id="kilometers" class="disableMoney" readonly>&nbsp;&nbsp;公里</div><i id="hintKilometers"></i></td>
+                </tr>
+                <tr class="showNewPart">
+                    <td class="label" valign="top"><div>科室意见：</div></td>
+                    <td colspan="3" class="single"><input id="oldSectionAdvice" class="disable" readonly><i></i></td>
+                </tr>
+                <tr class="showNewPart">
+                    <td class="label" valign="top"><div>领导意见：</div></td>
+                    <td colspan="3" class="single"><input id="oldLeaderAdvice" class="disable" readonly><i></i></td>
+                </tr>
+                <tr class="showNewPart">
+                    <td colspan="4" class="title">
+                        费用报销文件内容：
+                    </td>
+                </tr>
+                <tr class="showNewPart">
+                    <td class="label" valign="top"><div>附件张数：</div></td>
+                    <td colspan="3" class="fill"><input id="amountPay" class="disable" readonly><i id="hintAmountPay"></i></td>
+                </tr>
+                <tr id="placeSingleSelect" class="showNewPart">
+                    <td class="label" valign="top"><div><span>＊</span>报销标准：</div></td>
+                    <td colspan="3" class="fill">
+                        <select id="reimbursementStandard" class="disable" disabled></select><i></i>
+                    </td>
+                </tr>
+                <tr id="placeMultipleSelect" class="showNewPart">
+                    <td colspan="1" class="label" valign="top"><div><span>＊</span>报销标准：</div></td>
+                    <td colspan="3">
+                        <label class="radio" style="font-size: 3.3vw"><input type="checkbox" name="reimbursement" value="区内中心城区外一类地区：30元/人次" id="urbanOneRCheckBox" disabled>区内中心城区外一类地区：30元/人次</label>
+                        <br>
+                        <label class="radio" style="font-size: 3.3vw"><input type="checkbox" name="reimbursement" value="区内中心城区外二类地区：50元/人次" id="urbanTwoRCheckBox" disabled>区内中心城区外二类地区：50元/人次</label>
+                        <i></i>
+                    </td>
+                </tr>
+                <tr class="showNewPart">
+                    <td class="label" valign="top"><div style="font-size: 3.3vw">城市间交通费：</div></td>
+                    <td colspan="3" class="fill"><input id="cityTrafficPay" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintCityTrafficPay"></i></td>
+                </tr>
+                <tr class="showNewPart">
+                    <td class="label" valign="top"><div>过路过桥费：</div></td>
+                    <td colspan="3" class="fill"><input id="throughPay" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintThroughPay"></i></td>
+                </tr>
+                <tr class="showNewPart">
+                    <td class="label" valign="top"><div>住宿费：</div></td>
+                    <td colspan="3" class="fill"><input id="livePay" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintLivePay"></i></td>
+                </tr>
+                <tr class="showNewPart">
+                    <td class="label" valign="top"><div style="font-size: 3.3vw">外省自驾补贴：</div></td>
+                    <td colspan="3" class="fill"><input id="selfDrivePay" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintSelfDrivePay"></i></td>
+                </tr>
+                <tr class="showNewPart">
+                    <td class="label" valign="top"><div><span>*</span>合计：</div></td>
+                    <td colspan="3" class="fill"><input id="totalPay" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintTotalPay"></i></td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="advicePlanningSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

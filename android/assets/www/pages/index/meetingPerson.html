@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <link rel="stylesheet" href="../../css/meetingPerson.css">
+    <link rel="stylesheet" href="../../css/commonAPP.css">
+    <title>个人日程</title>
+</head>
+<body>
+<div class="container" data-trigger="click" style="width: 100%; padding: 0">
+    <div style="height: 44px">
+        <header id="hd" class="mui-bar mui-bar-nav">
+            <a href="indexInfo.html" style="display: inline-block">
+                <img src="../../resources/images/app/back.png"/>
+            </a>
+            <h1 class="mui-title" style="right:60px;left:60px;">个人日程</h1>
+        </header>
+    </div>
+    <ul class="newlist">
+        <div class="welinfo" id="calendarTitle">
+            <span><img src="../../resources/images/time2.png"/></span>
+            <b style="color:#5ea6cd;">您最近的安排日程如下：</b>
+        </div>
+        <div style="border-bottom:1px dotted #efeff4;" ></div>
+        <table class="tableStyle" style="margin-top: 0" id="fullCalendar">
+        </table>
+    </ul>
+</div>
+</body>
+<script type="text/javascript" src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../js/module/common/common.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../js/module/index/meetingPerson.js" charset="UTF-8"></script>
+</html>

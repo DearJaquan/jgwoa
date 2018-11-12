@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>政府信息公开审批表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/governmentInformation.js" charset="UTF-8"></script>
+
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name">政府信息公开审批表</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><span>＊</span><div>申请编号：</div></td>
+                    <td colspan="3" class="fill"><input id="applicationNum" class="disable" readonly><i id="hintApplicationNum"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>登记日期：</div></td>
+                    <td colspan="3" class="fill"><input id="registration" class="disable" readonly><i id="hintRegistration"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>申请人：</div></td>
+                    <td colspan="3" class="fill"><input id="proposer" class="disable" readonly><i id="hintProposer"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="special"><span>＊</span>申请公开内容：<i id="hintPublicContent" class="special"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <textarea id="publicContent" class="disable" readonly></textarea>
+                    </td>
+                </tr>
+                <tr data-show="showDepartmentAdvice">
+                    <td colspan="4" class="special">下属单位意见：<i id="hintForAdviceDepartment" class="special"></i></td>
+                </tr>
+                <tr id="showDepartmentSelect" data-show="showDepartmentAdvice">
+                    <td colspan="4">
+                        <label for="departmentName">单位名称：</label>
+                        <select id="departmentName" class="meeting"></select>
+                    </td>
+                </tr>
+                <tr id="showAdviceDepartment" data-show="showDepartmentAdvice">
+                    <td colspan="4" class="special">
+                        <div class="comtitle">
+                            <span><img src="../../resources/images/clist.png" /></span>
+                            <label>单位列表(0)</label>
+                            <div class="rline"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-show="showDepartmentAdvice" >
+                    <td colspan="4" align="center"><ul id="departmentList" class="yhlblist"></ul></td>
+                </tr>
+                <tr data-show="showDepartmentAdvice">
+                    <td colspan="4" class="special">单位意见：<i id="hintDepartmentAdvice" class="special"></i></td>
+                </tr>
+                <tr data-show="showDepartmentAdvice">
+                    <td colspan="4" align="center">
+                        <textarea id="departmentAdvice" class="disable" readonly></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="special"><span>＊</span>核实情况：<i id="hintCheckDetail" class="special"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <textarea id="checkDetail" class="disable" readonly></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>处理结果：</div></td>
+                    <td colspan="3" class="fill"><input id="processResult" class="disable" readonly><i id="hintProcessResult"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>答复日期：</div></td>
+                    <td colspan="3" class="fill"><input id="replyDate" class="disable" readonly><i id="hintReplyDate"></i></td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceLawSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceSecrecyBranchLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceAdminMainLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

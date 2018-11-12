@@ -1,0 +1,25 @@
+.objLabel{
+    float: left;
+    margin-right: 5px;
+}
+
+.objLabelContent{
+    float: left;
+    display:inline
+}
+
+.objLabelDelete{
+    display:inline;
+    color: red;
+    margin-left: 3px;
+}
+
+.firstLabel{
+    font-size: 25px;
+    color: blue;
+}
+
+.secondLabel{
+    font-size: 20px;
+    color: lightblue;
+}

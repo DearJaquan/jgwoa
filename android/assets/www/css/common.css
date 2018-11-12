@@ -1,0 +1,255 @@
+@charset "utf-8";
+/***
+ * 通用控件样式
+ */
+/*通用元素*/
+
+
+/*二级目录*/
+.formbody{padding:10px 18px;}
+.menu{height:33px; border-bottom:solid 1px #d0dee5; position:relative; border-left:solid 1px #d3dbde;}
+.menu ul li{float:left;height:34px; line-height:37px; background:url(../resources/images/itabbg.png) repeat-x; border-right:solid 1px #d3dbde;}
+.menu ul li a{font-size:14px; color:#000; padding-left:25px; padding-right:25px;}
+.menu ul li a.selected{ height:37px; display:block; background:url(../resources/images/itabbg1.png) repeat-x; font-weight:bold;}
+
+/*分页选择样式*/
+/*page*/
+.pagin{position:relative;margin-top:7px;padding:0 14px;}
+.pagin .blue{color:#056dae;font-style:normal;}
+.pagin .paginList{float: right; right:10px;top:0;}
+.pagin .paginList .paginItem{float:left;}
+.pagin .paginList .paginItem a{float:left;width:31px;height:24px;border:1px solid #DDD; text-align:center;line-height:24px;border-left:none;color:#3399d5;}
+.pagin .paginList .paginItem:first-child a{border-left:1px solid #DDD;}
+.pagin .paginList .paginItem:first-child a{border-bottom-left-radius:5px;border-top-left-radius:5px;}
+.pagin .paginList .paginItem:last-child a{border-bottom-right-radius:5px;border-top-right-radius:5px;}
+.pagin .paginList .paginItem.current,.pagin .paginList .paginItem.current a{background:#f5f5f5; cursor:default;color:#737373;}
+/*.pagin .paginList .paginItem:hover{background:#f5f5f5;}*/
+.pagin .paginList .paginItem.other,.pagin .paginList .paginItem.other a:hover{ cursor:default;}
+.pagin .paginList .paginItem.other:hover{background:#FFF;}
+.pagin .paginList .paginItem.other a{color:#737373;}
+.pagepre{background:url(../resources/images/pre.gif) no-repeat center center; width:31px; height:28px;}
+.pagenxt{background:url(../resources/images/next.gif) no-repeat center center; width:31px; height:28px;}
+.pagin .paginList .paginItem a.current{background:#f5f5f5; cursor:default;color:#737373;}
+
+
+
+.relateTypeNormal{
+    width: 150px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 2px;
+    line-height: 30px;
+    background: url(../resources/images/itabbg.png) repeat-x;
+    border: solid 1px #d3dbde;
+}
+
+.relateTypeSelect{
+    width: 150px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 2px;
+    line-height: 30px;
+    background: url(../resources/images/itabbg1.png) repeat-x;
+    border: solid 1px #d3dbde;
+    font-weight: bold;
+}
+
+
+/*表格样式*/
+table{border-collapse:collapse;border-spacing: 0;}
+
+.table{
+    margin: 3px auto;
+    border: solid 1px #cbcbcb;
+    width: 100%;
+    clear: both;
+}
+.table  th {
+    background: #eef5f7 url(../resources/images/th.gif) bottom repeat-x;
+    height: 28px;
+    line-height: 28px;
+    border-bottom: solid 1px #b6cad2;
+    text-align: left;
+    white-space: nowrap;
+    padding: 0 12px;
+}
+
+.table td {
+    padding: 8px 10px;
+    line-height: 19px;
+    border-right: dotted 1px #c7c7c7;
+}
+
+.table input[disabled]{
+    -webkit-appearance: none;
+    outline: none;
+    display:none
+}
+
+.table  label.checkbox{
+    background-color: #a7b5bc;
+    border: 1px solid #a7b5bc;
+    padding: 5px;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.table .link {
+    color: #056dae;
+}
+
+.table tbody tr.odd {
+    background: #f5f8fa;
+}
+
+.table tbody tr:hover {
+    background: #e5ebee;
+}
+
+
+
+.clear {
+    clear: both;
+}
+/*提示框样式*/
+
+
+
+/*人员列表样式*/
+.comtitle {
+    padding: 5px 10px 5px 10px;
+    clear: both;
+}
+
+.comtitle span {
+    width: 10px;
+    height: 10px;
+    float: left;
+    background: #fff;
+    padding-top: 3px;
+}
+
+.comtitle label {
+    font-size: 14px;
+    display: block;
+    float: left;
+    background: #fff;
+    padding-left: 5px;
+    padding-right: 8px;
+}
+
+.rline {
+    border-bottom: solid 1px #e5ecf0;
+    height: 10px;
+    margin-left: 50px;
+}
+
+.yhlblist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+
+.yhlblist li {
+    display: block;
+    width: auto;
+    margin: 0 10px;
+    float: left;
+}
+
+.yhlblist li a.name {
+    padding: 5px 5px;
+    font: normal 14px/24px "";
+    color: #333;
+    border: 0 solid #fff;
+}
+
+.yhlblist li a.name:hover {
+    color: #3080bd;
+    background: #edf8fd;
+    border: 1px solid #5cbef2;
+}
+
+.yhlblist li a.del {
+    font: bold 14px/24px "arial";
+    color: #3080bd;
+}
+
+.yhlblist li a.del:hover {
+    color: #E81800;
+    cursor: pointer;
+}
+
+/*上传样式*/
+.attachment {}
+
+.aControl {
+float: none;
+    height: 25px;
+}
+
+.aControlTitle{
+    float: left;
+    margin-right: 10px;
+    line-height: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #2D8EC3;
+}
+
+.aControlFile
+{
+    float: left;
+    margin-right: 10px;
+    width: 80px;
+    height: 25px;
+}
+
+.aControlFileButton
+{
+    position: absolute;
+    width: 80px;
+    height: 25px;
+    background-color: #00b3ee;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font: normal 14px/25px "微软雅黑";
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.aControlFileInput
+{
+    position: absolute;
+    width: 80px;
+    height: 25px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.aControlProcedure{
+    float: left;
+    width: 80px;
+    height: 25px;
+    margin-right: 10px;
+    background-color: #00b3ee;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font: normal 14px/25px "微软雅黑";
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.aContent{ width:100%; margin:5px 0; border-bottom:1px solid #eee; }
+
+.aContent td{ border-bottom:1px dashed #eee; padding:5px; font:normal 14px "微软雅黑"; color:#333; }
+
+.attachment .operate {
+    float: right;
+}

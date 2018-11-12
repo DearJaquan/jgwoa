@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>发文稿纸（独立发文）</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/dispatchDocument.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name">发文稿纸（独立发文）</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>发文单位：</div></td>
+                    <td colspan="3" class="single"><textarea class="disableDispatch" id="dispatchUnit" style="min-height: 32px;" readonly></textarea><i id="hintDispatchUnit"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>公开方式：</div></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="single">
+                        <label class="radio" style="margin-left: 10%"><input type="radio" name="overtType" value="主动公开" id="overtTypeA" disabled>主动公开</label>
+                        <label class="radio"><input type="radio" name="overtType" value="不予公开" id="overtTypeB" disabled>不予公开</label>
+                        <label class="radio"><input type="radio" name="overtType" value="依申请公开" id="overtTypeC" disabled>依申请公开</label>
+                        <i id="hintOvertType"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>文件标题：</div></td>
+                    <td colspan="3" class="single"><textarea class="disableDispatch" id="fileTitle" readonly></textarea><i id="hintFileTitle"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>附件：</div></td>
+                    <td colspan="3" class="single"><textarea class="disableDispatch" id="dispatchList" readonly></textarea><i id="hintDispatchList"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>发送机关：</div></td>
+                    <td colspan="3" class="single"><textarea class="disableDispatch" id="sendOrgan" readonly></textarea><i id="hintSendOrgan"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>抄送机关：</div></td>
+                    <td colspan="3" class="single"><textarea class="disableDispatch" id="copyOrgan" readonly></textarea><i id="hintCopyOrgan"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>内发机关：</div></td>
+                    <td colspan="3" class="single"><textarea class="disableDispatch" id="internalOrgan" readonly></textarea><i id="hintInternalOrgan"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>发文：</div></td>
+                    <td class="fill"><input id="dispatch" class="disable" readonly><i id="hintDispatch"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>编号：</div></td>
+                    <td class="fill"><input id="dispatchNumber" class="disable" readonly><i></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>印发日期：</div></td>
+                    <td class="fill"><input id="dispatchDate" class="disable" readonly><i></i></td>
+                 </tr>
+                <!--<tr><td colspan="4"><div style="font-weight: bold">发文模板下载：<a href="http://59.78.100.126:8083/oa/resources/files/fileModule.docx" download="发文模板" style="color: red">>>点击下载>></a></div></td></tr>-->
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceExamineArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceSignArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

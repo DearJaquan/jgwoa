@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style>
+        .container {
+            font-family: '微软雅黑';
+        }
+        .container .tab {
+            overflow: hidden;
+            background: #e7f2f9;
+        }
+        .container .tab a {
+            display: block;
+            padding: 14px 30px;
+            float: left;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.2s ease-in;
+        }
+        .container .tab a:hover {
+            background: #3B9FE1;
+            color: #fff;
+            text-decoration: none;
+        }
+        .container .tab a.current {
+            background: #3B9FE1;
+            color: #fff;
+            text-decoration: none;
+        }
+        .container .content {
+            margin:0px;
+            overflow: hidden;
+            padding: 0;
+        }
+        .container .content .content-item {
+            margin-top: 0px;
+            display: none;
+        }
+
+        .radio{
+            position:relative;
+            float: left;
+            margin : -40px 0px 35px 5px;
+        }
+
+
+        .radio .choose input[type="radio"] {
+            margin-left: -60px;
+            position: relative;
+            left:60px;
+            width: 130px;
+        }
+
+        .item{
+            position:relative;
+            float: left;
+            margin : -40px 0px 35px 5px;
+        }
+        .item .file,.date{
+            float:left;
+            margin : 0px 20px;
+        }
+        .item  input[type="text"],select {
+            height: 23px;
+            width: 160px;
+        }
+
+        .item label{
+            margin-left: 40px;
+        }
+
+         /*表格形式*/
+        table {
+            position: static;
+            border-collapse: collapse;
+            border-spacing: 10px;
+            padding: 10px;
+            border: 0;
+            font-weight: inherit;
+            font-style: inherit;
+            font-size: 100%;
+            font-family: inherit;
+            vertical-align: baseline;
+        }
+        .table table {
+            width: 100%;
+            border: 1px solid #c1d3de;
+        }
+        .table table thead tr th {
+            height: 35px;
+            line-height: 35px;
+            border-bottom: 1px solid #c1d3de;
+            font-weight: bold;
+            padding-left: 10px;
+            background:#f1f6ff;
+        }
+        .table table tbody tr td {
+            border-left: 1px dotted #c7c7c7;
+            line-height: 30px;
+            padding-left: 9px;
+        }
+        .table table tbody tr td:first-child {
+            border-left: none;
+        }
+        .table table tbody tr:hover {
+            background: #DCF0FC !important;
+        }
+
+        /*分割线*/
+        .alert {
+            position:inherit;
+            padding: 4px;
+            margin-top: 60px;
+            background-color: #fcf8e3;
+            color: #8a6d3b;
+            margin-bottom: 10px;
+            border: 1px solid #faebcc;
+            border-radius: 4px;
+        }
+
+        /*block*/
+        .tab-block  .block{
+            width: 150px;
+            height: 120px;
+            float: left;
+            margin: 15px 20px;
+            background-color: #F0F0F0;
+        }
+        .tab-block  .block a{
+            display: block;
+            padding: 20px 20px;
+            float: left;
+            text-decoration: none;
+            color: #333;
+
+        }
+        .tab-block  .block a:hover {
+            background: #3B9FE1;
+            color: #fff;
+            width: 110px;
+            height: 80px;
+            text-decoration: none;
+        }
+
+    </style>
+    <title>我的资料信息</title>
+</head>
+<body>
+<div class="container" data-trigger="click">
+    <div class="tab">
+        <a href="#" class="current" ><span style="font-size:15px">查看文件</span></a>
+        <a href="#" onclick=""><span style="font-size:15px">查询文件</span></a>
+        <a href="javascript:;"><span style="font-size:15px">发起文件</span></a>
+    </div>
+    <div class="content">
+        <div class="content-item">
+            <div class="radio">
+                <form name="f1">
+                     <span class="choose">
+                        <input type="radio" name="type" value="1" attr="guanzhu" checked>
+                        <span class="text">我的关注</span>
+                     </span>
+                    <span class="choose">
+                        <input type="radio" name="type" value="2" attr="shenpi">
+                        <span class="text">待审批</span>
+                    </span>
+                    <span class="choose">
+                        <input type="radio" name="type" value="3" attr="foujue">
+                        <span class="text">被否决</span>
+                    </span>
+                    <span class="choose">
+                        <input type="radio" name="type" value="4" attr="tuihui">
+                        <span class="text">被退回</span>
+                    </span>
+                    <span class="choose" >
+                        <input type="radio" name="type" value="5" attr="jinxing">
+                        <span class="text">进行中</span>
+                    </span>
+                    <span class="choose" >
+                        <input type="radio" name="type" value="6" attr="wancheng">
+                        <span class="text">待执行</span>
+                    </span>
+                    <span class="choose" >
+                        <input type="radio" name="type" value="7" attr="wancheng">
+                        <span class="text">草稿</span>
+                    </span>
+                    <span class="choose" >
+                        <input type="radio" name="type" value="8" attr="wancheng">
+                        <span class="text">已完成</span>
+                    </span>
+                </form>
+            </div>
+
+            <div class="alert"></div>
+
+            <div class="table">
+                <!--表格具体内容-->
+                    <table>
+                        <thead>
+                        <tr>
+                            <th class="num">序号</th>
+                            <th class="approval_date">发起日期</th>
+                            <th class="doc_name">流程名称</th>
+                            <th class="name">发起人</th>
+                            <th class="status">审批状态</th>
+                            <th class="operate">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="text"></tbody>
+                    </table>
+            </div><!--表格结束-->
+        </div>
+        <div class="content-item">
+            <div class ="item">
+                <div class="file">
+                   <label>文件名称：</label>
+                    <select id="instanceName"></select>
+                </div>
+                <div class="date">
+                    <label>日期：</label>
+                    <input type="text"  placeholder="开始时间" id="startTime">
+                    <span class="line">-</span>
+                    <input type="text"  placeholder="结束时间" id="endTime">
+                </div>
+                <button  class="query" onclick="search()">查询</button>
+
+
+            </div>
+            <div class="alert" role="alert"></div>
+            <div id="choose" style="margin-bottom: 3px;margin-right: -10px"></div>
+            <div class="table">
+                <!--表格具体内容-->
+                <table>
+                    <thead>
+                    <tr>
+                        <th > </th>
+                        <th class="num">序号</th>
+                        <th class="approval_date">发起日期</th>
+                        <th class="doc_name">文件名称</th>
+                        <th class="name">发起人</th>
+                        <th class="status">审批状态</th>
+                        <th class="operate">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="search"></tbody>
+                </table>
+            </div><!--表格结束-->
+        </div>
+        <div class="content-item">
+            <div class="item">
+                <label>文件类型：</label>
+                <select>
+                    <option>财务类</option>
+                    <option>流程类</option>
+                    <option>全部</option>
+                </select>
+            </div>
+            <div class="alert" role="alert"></div>
+            <div class="tab-block">
+                <div class="block " ><a href="sealCirculation.html?type=new" target="blank" class="clearfix"><span style="font-size:16px">印章使用内部流转单</span></a></div>
+                <div class="block " ><a href="restaurantReception.html?type=new" target="blank"><span style="font-size:16px">区政府小餐厅接待用餐申请单</span></a></div>
+                <div class="block " ><a href="governmentInformation.html?type=new" target="blank"><span style="font-size:16px">政府信息公开审批表</span></a></div>
+                <div class="block " ><a href="projectPreview.html?type=new" target="blank"><span style="font-size:16px">区建管委（区交通委）政府采购及招标项目预审表</span></a></div>
+                <div class="block " ><a href="purchaseRequisition.html?type=new" target="blank"><span style="font-size:16px">嘉定区建管委（交通委）请购申请单</span></a></div>
+                <div class="block " ><a href="contractApprove.html?type=new" target="blank"><span style="font-size:16px">区建管委（区交通委）合同审批表</span></a></div>
+                <div class="block " ><a href="nationalAssetDisposeOne.html?type=new" target="blank"><span style="font-size:16px">嘉定区区级行政事业单位国有资产处置申请表(一)</span></a></div>
+                <div class="block " ><a href="meetingCostGather.html?type=new" target="blank"><span style="font-size:16px">会议费汇总报销表</span></a></div>
+                <div class="block " ><a href="meetingSummary.html?type=new" target="blank"><span style="font-size:16px">会议纪要</span></a></div>
+                <div class="block " ><a href="nationalAssetLend.html?type=new" target="blank"><span style="font-size:16px">嘉定区区级行政事业单位国有资产出租、出借申请表</span></a></div>
+                <div class="block " ><a href="nationalAssetBill.html?type=new" target="blank"><span style="font-size:16px">嘉定区区级行政事业单位国有资产损溢、资金挂账申请核实表</span></a></div>
+                <div class="block " ><a href="projectFundsWithdrawal.html?type=new" target="blank"><span style="font-size:16px">嘉定区预算单位项目经费提现备案表</span></a></div>
+                <div class="block " ><a href="financeBillDestroy.html?type=new" target="blank"><span style="font-size:16px">上海市财政票据销毁申请表</span></a></div>
+                <div class="block " ><a href="dispatchDocument.html?type=new" target="blank"><span style="font-size:16px">发文稿纸（独立发文）</span></a></div>
+                <div class="block " ><a href="dispatchDocumentUnion.html?type=new" target="blank"><span style="font-size:16px">发文稿纸（联合发文）</span></a></div>
+                <div class="block " ><a href="contractReview.html?type=new" target="blank"><span style="font-size:16px"> 区建管委（区交通委）合同会审表</span></a></div>
+                <div class="block " ><a href="paymentApprove.html?type=new" target="blank"><span style="font-size:16px"> 嘉定区建管委付款审批单</span></a></div>
+                <div class="block " ><a href="informationSubmissionExamination.html?type=new" target="blank"><span style="font-size:16px"> 嘉定区信息公开信息报送审查表</span></a></div>
+                <div class="block " ><a href="projectAppropriationReview.html?type=new" target="blank"><span style="font-size:16px"> 项目资金拨款(用款计划)审核表</span></a></div>
+                <div class="block " ><a href="nationalAssetDisposeTwo.html?type=new" target="blank"><span style="font-size:16px">嘉定区区级行政事业单位国有资产处置申请表(二)</span></a></div>
+                <div class="block " ><a href="theTIOGMatterApply.html?type=new" target="blank"><span style="font-size:16px">嘉定区建管委“三重一大”事项申请表</span></a></div>
+                <div class="block " ><a href="theTIOGMatterExecution.html?type=new" target="blank"><span style="font-size:16px">嘉定区建管委“三重一大”事项执行情况表</span></a></div>
+                <div class="block " ><a href="projectBudgetApplication.html?type=new" target="blank"><span style="font-size:16px">项目预算申请表&财政支出项目绩效目标审查表</span></a></div>
+                <div class="block " ><a href="publicAffairsAndVehicleApplication.html?type=new" target="blank"><span style="font-size:16px">外出公务活动及用车申请表</span></a></div>
+                <div class="block " ><a href="projectFundsOverWithdrawal.html?type=new" target="blank"><span style="font-size:16px">嘉定区预算单位公用经费超额度提现审批表</span></a></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="../../js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../js/module/common/common.js"></script>
+<script type="text/javascript" src="../../js/extend/laydate/laydate.js"></script>
+<script type="text/javascript" src="../../js/module/approve/approveCommon.js"></script>
+<script type="text/javascript" src="../../js/module/approve/approve.js"></script>
+
+</html>

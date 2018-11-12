@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>印章使用内部流转单</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/sealCirculation.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1" style="font-size: 8vw">嘉定区建管委（交通委）</div>
+            <div class="name2" style="font-size: 8vw">印章使用内部流转单</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                       文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>文件名称：</div></td>
+                    <td class="fill" colspan="3"><input id="fileName" class="disable" readonly/><i id="hintFileName"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>用章类别：</div></td>
+                    <td class="fill" colspan="3">
+                        <select id="sealType" class="disable" disabled>
+                            <option value="党务类印章">中共上海市嘉定区建设和管理工作委员会</option>
+                            <option value="行政类印章" selected="selected">上海市嘉定区建设和管理委员会</option>
+                            <option value="行政类印章">上海市嘉定区交通委员会</option>
+                            <option value="行政类印章">上海市嘉定区重大工程建设领导小组办公室</option>
+                            <option value="行政类印章">嘉定区整顿交通市场秩序规范交通行政执法工作联席会议办公室</option>
+                            <option value="行政类印章">嘉定区静态交通管理领导小组办公室</option>
+                            <option value="行政类印章">上海市嘉定区地下空间管理联席会议办公室</option>
+                            <option value="行政类印章">嘉定区防范和处理建筑领域拖欠农民工工资联席会议办公室</option>
+                            <option value="行政类印章">上海市嘉定区老城发展领导小组办公室</option>
+                        </select>
+                        <i id="hintSealType"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>申办科室：</div></td>
+                    <td class="fill" colspan="3"><input id="launchSection" class="disable" readonly><i id="hintLaunchSection"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>经办人：</div></td>
+                    <td class="fill" colspan="3"><input id="transactor" class="disable" readonly><i id="hintOperator"></i></td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceAdminMainLeaderArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="advicePartyMainLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="../../js/lib/jquery-3.2.1.min.js"></script>
+    <script src="../../js/module/approve/approveCommon.js"></script>
+    <script src="../../js/lib/pdfobject.min.js"></script>
+    <script src="../../js/module/common/common.js"></script>
+    <script>
+        $(document).ready(function () {
+            var id = getParameter("id");
+            var path = getParameter("path");
+            if(id){
+                $.ajax({
+                    url : "http://192.168.1.100:8083/jdjgw-oa/ws/trivial/filepath/instance",
+                    type : 'GET',
+                    data : {
+                        id : path
+                    },
+                    success:function(data){
+                        var filePath = "http://192.168.1.100:8083/jdjgw-oa/"+data.data.path;
+                        PDFObject.embed(filePath);
+                    }
+                });
+            }
+            if(path){
+                PDFObject.embed(path);
+            }
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

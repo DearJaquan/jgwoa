@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>区政府小餐厅接待用餐申请单</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/restaurantReception.js" charset="UTF-8"></script>
+
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1">区政府小餐厅接待用餐</div>
+            <div class="name2">申请单</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>申请人：</div></td>
+                    <td class="fill"><input id="transactor" class="disable" readonly><i id="hintTransactor"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>用餐时间：</div></td>
+                    <td class="fill"><input id="dinnerDate" class="disable" readonly><i id="hintDinnerDate"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>用餐人数：</div></td>
+                    <td class="fill"><input id="dinnerNum" class="disable" readonly><i id="hintDinnerNum"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>用餐标准：</div></td>
+                    <td class="fill"><input id="dinnerStandard" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintDinnerStandard"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="special"><span>＊</span>申请事由：<i id="hintDinnerReason" class="special"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <textarea id="dinnerReason" class="disable" readonly></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>用餐地点：</div></td>
+                    <td class="fill"><input id="dinnerPlace" class="disable" readonly><i id="hintDinnerPlace"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>＊</span>实际餐费：</div></td>
+                    <td class="fill"><input id="dinnerCost" class="disableMoney" readonly>&nbsp;&nbsp;元<i id="hintDinnerCost"></i></td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    <tr>
+        <td colspan="4" class="comment">
+            <p><strong>注:</strong></p>
+            <p>1、用餐标准一般为客饭，50元/人（圆桌，不含冷盘、饮料）。如需提高标准，请注明。</p>
+            <p>2、申请人填写后需经分管领导审批，由于区政府小餐厅容量有限，故请尽早交行政办预订。</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

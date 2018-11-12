@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>上海市财政票据销毁申请表</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/popInfo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/newConfirm.css">
+    <link rel="stylesheet" type="text/css" href="../../css/procedure.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+    <script src="../../js/lib/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script src="../../js/extend/laydate/laydate.js" charset="UTF-8"></script>
+    <script src="../../js/extend/newConfirm/newConfirm.js" charset="UTF-8"></script>
+    <script src="../../js/extend/encryption/hmac-sha256.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/common.js" charset="UTF-8"></script>
+    <script src="../../js/module/common/commonCreateTable.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/approveCommon.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/uploadAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/checkValue.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/relateAttachment.js" charset="UTF-8"></script>
+    <script src="../../js/module/approve/pages/financeBillDestory.js" charset="UTF-8"></script>
+</head>
+<body>
+<div id="backIcon"></div>
+<table class="procedure">
+    <tbody>
+    <tr>
+        <td>
+            <div class="name1" style="font-size: 8vw">上海市财政票据销毁</div>
+            <div class="name2" style="font-size: 8vw">申请表</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="control"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="content">
+                <tr>
+                    <td colspan="4" class="title">
+                        文件内容：<span id="launchRoleArea"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>单位名称：</div></td>
+                    <td colspan="3" class="fill"><input id="companyName" class="disable" readonly><i id="hintCompanyName"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div>日期：</div></td>
+                    <td colspan="3" class="fill"><input id="date" class="disable" readonly><i id="hintDate"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>*</span>领购证号：</div></td>
+                    <td colspan="3" class="fill"><input id="billLicenseNumber" class="disable" readonly><i id="hintBillLicenseNumber"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div style="font-size: 3.7vw"><span>*</span>财务负责人：</div></td>
+                    <td colspan="3" class="fill"><input id="financialController" class="disable" readonly><i id="hintFinancialController"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>*</span>联系电话：</div></td>
+                    <td colspan="3" class="fill"><input id="financeTel" class="disable" readonly><i id="hintFinanceTel"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div style="font-size: 3.7vw"><span>*</span>票据经管人：</div></td>
+                    <td colspan="3" class="fill"><input id="billManager" class="disable" readonly><i id="hintBillManager"></i></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top"><div><span>*</span>联系电话：</div></td>
+                    <td colspan="3" class="fill"><input id="billManagerTel" class="disable" readonly><i id="hintBillManagerTel"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table class="innerTable">
+                            <tr><td colspan="4" class="tableTitle">票据信息：<i id="hintForBillInfo" class="special"></i></td></tr>
+                            <tr><td colspan="4" id="tableLineList"></td></tr>
+                            <tr class="tableLineEdit disappear editBegin">
+                                <td class="label" valign="top"><div><span>＊</span>票据名称：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForBillName" class="default"><i id="hintForBillName"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div style="font-size: 3.7vw"><span>＊</span>本数/份数：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForBillNum" class="default"><i id="hintForBillNum"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>票据号码：</div></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td colspan="4" class="single">
+                                    <input id="inputForBillFrom" class="other" style="width: 45%;margin-left: 3%">
+                                    <span>-</span>
+                                    <input id="inputForBillTo" class="other" style="width: 45%">
+                                    <i id="hintForBillFromTo"></i>
+                                </td>
+                            </tr>
+                            <tr class="tableLineEdit disappear">
+                                <td class="label" valign="top"><div><span>＊</span>金额：</div></td>
+                                <td colspan="3" class="fill"><input id="inputForBillMoney" class="money">&nbsp;&nbsp;万元<i id="hintForBillMoney"></i></td>
+                            </tr>
+                            <tr class="tableLineEdit disappear editEnd"><td colspan="4" class="center"><button id="saveForTableLine">保存</button></td></tr>
+                            <tr><td colspan="4" class="center"><button id="moreTableLine">+继续添加</button></td></tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr><td colspan="4"><div id="attachmentArea"></div></td></tr>
+                <tr><td colspan="4"><div id="contentControl"></div></td></tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4"><table id="adviceSectionArea" class="approve"></table></td></tr>
+    <tr><td colspan="4"><table id="adviceBranchLeaderArea" class="approve"></table></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

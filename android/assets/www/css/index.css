@@ -1,0 +1,90 @@
+﻿/*body{*/
+	/*font-family:'微软雅黑';*/
+	/*font-size: 14px;*/
+	/*line-height: 1.5;*/
+	/*margin: 0;*/
+	/*background:#2a83cf;*/
+/*}*/
+a{
+	color: #337ab7;
+	text-decoration: none;
+}
+
+
+/*页面头部*/
+
+
+/*logo*/
+
+.toolbar{
+	float: right;
+	margin: 0px 11px 0 0;
+}
+
+/*欢迎信息*/
+.login-info{
+	margin:14px 14px 0 60px;
+	height:18px;
+}
+.login-info .welcome{
+	float:left;
+	padding-left:20px;
+	width:80px;
+	height:18px;
+	line-height:18px;
+	background: no-repeat left bottom;
+	font-size:12px;
+	color:#fff;
+}
+.login-info .welcome span{ float:left;}
+.login-info .welcome .user-name{
+	float:left;
+	color:#fff;
+}
+.login-info .login-msg{
+	float:left;
+	margin-left:10px;
+}
+.login-info .login-msg a{
+	float:left;
+	height:18px;
+	line-height:18px;
+}
+.login-info .login-msg a.msg-txt{
+	float:left;
+	padding-left:15px;
+	width:28px;
+	background: no-repeat left center;
+	color:#fff;
+	font-size:12px;
+}
+.login-info .login-msg a.msg-num{
+	float:left;
+	width:16px;
+	height:9px;
+	margin:6px 0 0 4px;
+	color:#fff;
+	line-height:9px;
+	font-size:9px;
+	text-align: center;
+}
+
+/*退出按钮*/
+.tool{
+	margin: 11px 18px ;
+}
+.tool a{
+	font-size: 18px;
+	float: right;
+	margin-right: 150px;
+	left:50px;
+	line-height: 24px;
+	color: #fff;
+	background: #3b9fe1;
+}
+.tool a.exit{
+	padding: 5px 20px 5px 20px;
+	background:#3b9fe1 ;
+}
+
+
